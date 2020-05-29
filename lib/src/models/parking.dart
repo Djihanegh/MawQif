@@ -4,7 +4,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 
-
 class Parking {
   DocumentReference docRef =
       Firestore.instance.collection('parking').document();
@@ -25,29 +24,31 @@ class Parking {
   String email;
   String heureDouverture;
   String heureDeFermeture;
-  int users ;
-  int profit ;
+  int users;
+  int profit;
   bool nonvalide;
+  String rating;
+  bool liked ;
+  Parking({
+    @required this.id,
+    @required this.nom,
+    @required this.adresse,
+    @required this.imageURL,
+    @required this.prix,
+    this.heureDouverture,
+    this.heureDeFermeture,
+    this.users,
+    this.profit,
+    this.nonvalide,
+    this.rating,
+    this.liked,
+  });
 
-  Parking(
-      {@required this.id,
-      @required this.nom,
-      @required this.adresse,
-      @required this.imageURL,
-      @required this.prix,
-      this.heureDouverture ,
-      this.heureDeFermeture,
-      this.users,
-      this.profit,
-      this.nonvalide,
-      
-      });
-
-      Parking.fromMap(Map<String, dynamic> data) {
+  Parking.fromMap(Map<String, dynamic> data) {
     id = docRef.documentID;
     nom = data['nom'];
     adresse = data['addresse'];
-    imageURL = data['imageURL'];
+   // imageURL = data['imageURL'];
     prix = data['prix'];
     rue = data['rue'];
     location = data['point'];
@@ -55,13 +56,12 @@ class Parking {
     status = data['status'];
     heureDouverture = data['heureDouverture'];
     heureDeFermeture = data['heureDeFermeture'];
-    nTelephone= data ['nTelephone'];
-    email = data ['email'];
-    users= data ['users'];
-    profit=data['profit'];
-    nonvalide=data['nonvalide'];
-
-
+    nTelephone = data['nTelephone'];
+    email = data['email'];
+    users = data['users'];
+    profit = data['profit'];
+    nonvalide = data['nonvalide'];
+    rating=data['rating'];
   }
 
   Map<String, dynamic> toJson() => {
@@ -71,23 +71,24 @@ class Parking {
         'nom': nom,
         'id': id,
         'places': places,
-        'users':users,
-        'profit':profit,
+        'users': users,
+        'profit': profit,
+        'rating':rating,
+         'liked':liked,
       };
 
   factory Parking.fromJson(Map<String, dynamic> parsedJson) {
     return Parking(
-        id: parsedJson['id'],
-        nom: parsedJson['nom'],
-        adresse: parsedJson['addresse'],
-        prix: parsedJson['prix'],
-        imageURL: parsedJson[null],
-        users: parsedJson['users'],
-        profit:parsedJson['profit'],
-       // heureDeFermeture: parsedJson['heureDeFermeture'],
-
+      id: parsedJson['id'],
+      nom: parsedJson['nom'],
+      adresse: parsedJson['addresse'],
+      prix: parsedJson['prix'],
+      imageURL: parsedJson[null],
+      users: parsedJson['users'],
+      profit: parsedJson['profit'],
+      rating:parsedJson['rating'],
+      liked: parsedJson['liked'],
+      // heureDeFermeture: parsedJson['heureDeFermeture'],
     );
   }
-
-  
 }
