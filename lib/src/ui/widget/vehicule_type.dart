@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class Vehicule extends StatefulWidget  {
    static String title = "petit,moyen .." ;
   createState() {
-    // TODO: implement createState
     return VehiculeState();
   }
 
@@ -17,7 +16,6 @@ class VehiculeState extends State<Vehicule> {
  
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new MaterialApp(home: Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -98,7 +96,6 @@ class GridCell extends StatelessWidget
    GridCell({Key key , this.title , this.description , this.imageURL }) : super( key:key);
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,

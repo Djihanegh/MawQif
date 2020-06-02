@@ -8,21 +8,23 @@ class User with ChangeNotifier {
   static String id ;
   String codePersonnel;
   static int code ;
-  List<String> immatriculations;
+  String immatriculations;
   String nom;
   String prenom ;
   String telephone;
   String email ;
   String password;
+       
 
-  User({@required this.uid ,
-   this.codePersonnel ,
-    this.immatriculations,
+      // User (this.uid , this.immatriculations);
+  User({ this.uid ,
+     this.codePersonnel ,
+     this.immatriculations,
     this.nom,
     this.prenom,
-    this.telephone,
-    this.email,
-    this.password,
+     this.telephone,
+     this.email,
+     this.password,
     });
 
    Map <String,dynamic> toJson() =>
@@ -32,7 +34,8 @@ class User with ChangeNotifier {
         'telephone':telephone,
         'nom':nom,
         'prenom':prenom,
-        'email':email
+        'email':email,
+        'immatriculation':immatriculations,
         //'matricule':immatriculations,
     };
 
@@ -44,6 +47,7 @@ class User with ChangeNotifier {
          nom=data['nom'];
          prenom=data['prenom'];
          email=data['email'];
+         immatriculations=data['immatriculation'];
     }
 
     String getCurrentId() => uid;
@@ -55,7 +59,8 @@ class User with ChangeNotifier {
       nom:parsedJson['nom'],
       prenom: parsedJson['prenom'],
       telephone: parsedJson['telephone'],
-      email: parsedJson['email']
+      email: parsedJson['email'],
+      immatriculations: parsedJson['immatriculation'],
     );
   }
 

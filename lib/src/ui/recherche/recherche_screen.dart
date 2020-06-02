@@ -11,7 +11,7 @@ class Recherche extends StatelessWidget {
   @override
   Widget build(BuildContext inContext) {
     var loadedMessages = Provider.of<Search>(inContext).getMessage();
-    var heure = Provider.of<Calendar>(inContext).getFmt;
+   // var heure = Provider.of<Calendar>(inContext).getFmt;
 
     return MaterialApp(
         home: DefaultTabController(

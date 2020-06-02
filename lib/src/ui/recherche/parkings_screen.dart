@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mawqif/src/providers/parking_provider/parkings.dart';
+import 'package:mawqif/src/ui/filtering/filter_chip.dart';
 import 'package:mawqif/src/ui/widget/parkingItem.dart';
 import 'package:provider/provider.dart';
 
@@ -9,7 +10,6 @@ class ParkingScreen extends StatefulWidget {
   
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return ParkingState();
   }
 }
@@ -24,13 +24,22 @@ class ParkingScreen extends StatefulWidget {
 @override
   Widget build(BuildContext context) {
     Parkings parkNotifier = Provider.of<Parkings>(context);
+  /*  CastFilter notifier = Provider.of<CastFilter>(context);
+    CastFilter cast = new CastFilter();*/
+
     print("building Feed");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[50],
         iconTheme: IconThemeData(color: Colors.blueGrey[800]),
+        actions: <Widget>[
+           IconButton(icon: Icon(Icons.filter_list), onPressed: () {
+         Navigator.push(context, MaterialPageRoute(builder: (context) =>   CastFilter()));
+        },)
+  
+        ],
       ),
-      body:parkNotifier.items== null ?  Center(child: CircularProgressIndicator()) : FutureBuilder(
+      body:  parkNotifier.items.isEmpty ?  Center(child: CircularProgressIndicator()) : FutureBuilder(
         future:parkNotifier.getParks(),
          builder: (BuildContext context, AsyncSnapshot dataSnapshot) {
             if (dataSnapshot.connectionState == ConnectionState.waiting) {
@@ -49,7 +58,7 @@ class ParkingScreen extends StatefulWidget {
               builder: (ctx, orderData, child) => ListView.builder(
                 itemCount: orderData.items.length,
                 itemBuilder: (ctx, i) => 
-                ParkingItem(orderData.items[i]),
+                ParkingItem(orderData.items[i] , i),
               ),
             );
           }
@@ -58,40 +67,11 @@ class ParkingScreen extends StatefulWidget {
 
                 }
          }
+      )
+      
      
-    )
+    
     );
   }
 
- Widget _parkingItem(String titre , String sub , String image , String prix) {
-
-    return Card (
-      child :FlatButton(
-      child:Column(children: <Widget>[
-        
-        Image.network(image , width: 300, height: 90,
-                fit: BoxFit.fitWidth,),
-          Container(
-            margin: EdgeInsets.only(right:53),
-            child: 
-          Text(titre), ),
-          Container(height: 7,),
-          Container(
-            margin: EdgeInsets.only(left:10),
-            child:
-          Text(sub),
-          ),
-       
-       Container(child: Align(
-          alignment: Alignment.topRight,
-          child:Icon(Icons.chevron_right) )),
-          Container(child:
-          Align(
-          alignment: Alignment.bottomRight,
-          child:Text(prix+"DA")) ),
-
-        ],), onPressed: () {},
-    ));
-
-  }
 }

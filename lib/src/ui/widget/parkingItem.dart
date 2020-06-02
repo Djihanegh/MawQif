@@ -10,7 +10,7 @@ class ParkingItem extends StatefulWidget {
   final Parking reservation;
   int i;
 
-  ParkingItem(this.reservation);
+  ParkingItem(this.reservation, this.i);
 
   @override
   _ParkingItemState createState() => _ParkingItemState();
@@ -18,156 +18,99 @@ class ParkingItem extends StatefulWidget {
 
 class _ParkingItemState extends State<ParkingItem> {
   double rating = 3.5;
-  /*@override
-  Widget build(BuildContext context) {
-   // List<String> list = ["Annuler ", "Modifier", "Supprimer"];
-    // String id= Provider.of<User>(context,listen: false).getCurrentId();
-    return 
-      Card(
-      margin: EdgeInsets.all(10),
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            title: Text(
-              " ${widget.reservation.nom}"),
-           subtitle: Text(              " ${widget.reservation.adresse}"
-
-              //DateFormat('dd/MM/yyyy hh:mm').format('${widget.reservation.heureD}'),
-            ),
-            trailing: IconButton(
-              icon: Icon(Icons.more_vert), onPressed: () {},
-             /* onPressed: () {
-                return Container ( child :ListView(
-                 // itemCount: list.length,
-                  //itemBuilder: (_,i) =>
-                 /* children: list.map(
-                    (data) => RaisedButton(child:Text(data), onPressed: () {} , )
-                  ).toList()*/
-                 /* Column(children: <Widget>[
-                         RaisedButton(  child: Text("Annuler"), onPressed: () {}, ),
-                  ],) */
-                  
-                    //PopupMenuItem(child: Text("Annuler"),)
-                      
-                     // RaisedButton(  child: Text(list[i]), onPressed: () {}, ),
-                      // RaisedButton(  child: Text(list[i]), onPressed: () {}, ),
-
-                  
-                ) );
-
-              },*/
-              /*icon: Icon(_expanded ? Icons.expand_less : Icons.expand_more),
-              onPressed: () {
-                setState(() {
-                  _expanded = !_expanded;
-                });
-              },*/
-            ),
-          ),
-          if (_expanded)
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 4),
-             // height: min(widget.order.products.length * 20.0 + 10, 100),
-             /* child: ListView(
-                children: widget.reservation.park
-                    .map(
-                      (prod) => Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Text(
-                                prod.nom,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                '${prod.places}x \$${prod.prix}',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.grey,
-                                ),
-                              )
-                            ],
-                          ),
-                    )
-                    .toList(),
-              ),*/
-            )
-        ],
-      ),
-    //) 
-    );
-  }*/
-
   @override
   Widget build(BuildContext context) {
     Parkings provider = Provider.of<Parkings>(context);
+    //bool favorite = widget.reservation.liked;
 
     return FlatButton(
       child: Card(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          elevation: 6,
-          color: Colors.blueGrey[50],
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 14),
-            child: Column(
-              children: <Widget>[
-                ListTile(
-                  title: Text(
-                    '${widget.reservation.nom}',
-                    //"helo",
-                    style: TextStyle(
-                        color: Colors.blueGrey[800],
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17.5,
-                        letterSpacing: 0.2),
-                  ),
-                  subtitle: Text(
-                    '${widget.reservation.adresse}',
-                    //"hi",
-                    style: TextStyle(
-                        color: Colors.blueGrey[800],
-                        fontWeight: FontWeight.w400,
-                        fontSize: 13.5,
-                        letterSpacing: 0.1),
-                  ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        elevation: 6,
+        color: Colors.blueGrey[50],
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 14),
+          child: Column(
+            children: <Widget>[
+              ListTile(
+                title: Text(
+                  '${widget.reservation.nom}',
+                  style: TextStyle(
+                      color: Colors.blueGrey[800],
+                      fontWeight: FontWeight.w700,
+                      fontSize: 17.5,
+                      letterSpacing: 0.2),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(left: 12.0),
-                        child: StarRating(
+                subtitle: Text(
+                  '${widget.reservation.adresse}',
+                  style: TextStyle(
+                      color: Colors.blueGrey[800],
+                      fontWeight: FontWeight.w400,
+                      fontSize: 13.5,
+                      letterSpacing: 0.1),
+                ),
+                trailing: //Consumer<Parkings>(
+                    // builder: (ctx, product, _) =>
+                    IconButton(
+                  icon: Icon(
+                    widget.reservation.liked
+                        ? Icons.favorite
+                        : Icons.favorite_border,
+                  ),
+                  color: Theme.of(context).accentColor,
+                  onPressed: () {
+                    setState(() {
+                      /*provider.toggleFavoriteStatus(
+                          widget.i, widget.reservation.id);*/
+                      if (widget.reservation.liked == true) {
+                        
+                        widget.reservation.liked = false;
+                      } else {
+                        widget.reservation.liked = true;
+                        provider.fav_items.add(widget.reservation);
+                      }
+                    });
+                  },
+                ),
+                //),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 12.0),
+                      child: StarRating(
                           // size: 20,
                           color: Colors.yellow[600],
-                          rating: double.parse(  provider.currentPark.rating),
+                          rating: double.parse(widget.reservation.rating),
                           onRatingChanged: (rating) =>
-                              setState(() => this.rating = rating),
-                        ),
+                              //setState(() => this.rating = rating),
+
+                              provider.updateRatingStars(
+                                  rating.toString(), widget.reservation.id)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 12.0),
+                      child: Text(
+                        '${widget.reservation.prix}DA',
+                        //"prix",
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 17),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 12.0),
-                        child: Text(
-                          '${widget.reservation.prix}DA',
-                          //"prix",
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 17),
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          )
-          //   ),
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
+        ),
+      ),
+      //    ),
       onPressed: () {
         provider.currentPark = widget.reservation;
         showModalBottomSheet(

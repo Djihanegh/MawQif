@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:mawqif/src/ui/plus/plus.dart';
-import 'package:mawqif/src/ui/réservation/réservation_screen.dart';
+import 'package:mawqif/src/ui/r%C3%A9servation/r%C3%A9servation_screen.dart';
 import 'package:mawqif/src/ui/recherche/recherche_screen.dart';
 import 'abonnement/abonnement.dart';
 

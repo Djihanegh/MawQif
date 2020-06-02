@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:geocoder/geocoder.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:provider/provider.dart';
@@ -20,8 +19,8 @@ class Search extends StatelessWidget with ChangeNotifier {
 
   String ville = "Ville..";
   static String rue = "";
-  static double ville_lat;
-  static double ville_long;
+  static double villelat;
+  static double villelong;
   String _positionActuelle = "Ma position actuelle";
 
   String getVille() => ville;
@@ -62,11 +61,11 @@ class Search extends StatelessWidget with ChangeNotifier {
     // message = "${_location.latitude} , ${_location.longitude}";
     ville = placemark[0].locality;
     messages = placemark[0].administrativeArea + "," + placemark[0].locality;
-    ville_lat = 36.926099;
+    villelat = 36.926099;
     //__location.latitude ;
-    ville_long = 7.755550;
+    villelong = 7.755550;
     //Location location = new Location(ville_lat,ville_long);
-    GeoPoint points = new GeoPoint(ville_lat, ville_long);
+    GeoPoint points = new GeoPoint(villelat, villelong);
     // __location.longitude ;
     rue = placemark[0].name;
     print("messages" + messages);
@@ -86,12 +85,12 @@ class Search extends StatelessWidget with ChangeNotifier {
     }
   }
 
-  final Geolocator _geolocator = Geolocator();
+  //final Geolocator _geolocator = Geolocator();
   //final TextEditingController _addressTextController = TextEditingController();
 
   List<String> _placemarkCoords = [];
 
-  Future<void> _onLookupCoordinatesPressed(BuildContext context) async {
+  /*Future<void> _onLookupCoordinatesPressed(BuildContext context) async {
     final List<Placemark> placemarks =
         await Future(() => _geolocator.placemarkFromAddress(t1.text))
             .catchError((onError) {});
@@ -108,18 +107,18 @@ class Search extends StatelessWidget with ChangeNotifier {
       _placemarkCoords = coords;
       notifyListeners();
     }
-  }
+  }*/
 
   Future<Null> displayPrediction(Prediction p) async {
     if (p != null) {
       PlacesDetailsResponse detail =
           await _places.getDetailsByPlaceId(p.placeId);
 
-      var placeId = p.placeId;
+      //var placeId = p.placeId;
       double lat = detail.result.geometry.location.lat;
       double lng = detail.result.geometry.location.lng;
 
-      var address = await Geocoder.local.findAddressesFromQuery(p.description);
+     // var address = await Geocoder.local.findAddressesFromQuery(p.description);
 
       print(lat);
       print(lng);
@@ -128,8 +127,7 @@ class Search extends StatelessWidget with ChangeNotifier {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    final loadedMessages = Provider.of<Search>(context).getMessage();
+    //final loadedMessages = Provider.of<Search>(context).getMessage();
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(

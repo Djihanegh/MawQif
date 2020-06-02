@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:mawqif/src/providers/connection_provider/authh.dart';
+import 'package:mawqif/src/providers/vehicule_provider/vehicule_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:mawqif/src/providers/connection_provider/authh.dart';
+import 'package:mawqif/src/ui/filtering/filter_chip.dart';
+import 'package:mawqif/src/ui/réservation/authentification/auth_screen.dart';
+
 import './src/models/user.dart';
 import './src/providers/map/states.dart';
 import './src/providers/parking_provider/parkings.dart';
 import './src/providers/reservation_provider/reservations.dart';
 import './src/providers/users/users.dart';
+import './src/ui/home_screen.dart';
 import './src/ui/recherche/calendar_view/calendar2.dart';
 import './src/ui/recherche/calendar_view/calendar_screen.dart';
-import './src/ui/home_screen.dart';
 import './src/ui/recherche/search_screen.dart';
 import './src/utils/loading.dart';
-import 'src/ui/réservation/authentification/auth_screen.dart';
-
 var routes = <String, WidgetBuilder>{
   "/home": (BuildContext context) => MyApp(),
   //"/intro": (BuildContext context) => MyApp(),
@@ -26,14 +28,16 @@ void main() {
         ChangeNotifierProvider(
           create: (context) => Parkings(),
         ),
-       /* ChangeNotifierProvider(
+        /* ChangeNotifierProvider(
           create: (context) => Recherche2(),
         ),*/
         ChangeNotifierProvider(create: (context) => Search()),
         ChangeNotifierProvider(create: (context) => Calendarr()),
         ChangeNotifierProvider(create: (context) => Calendar()),
         ChangeNotifierProvider(create: (context) => AppState()),
-       /*ChangeNotifierProxyProvider<Auth, ReservationModel>(
+        ChangeNotifierProvider(create: (context) => VehiculeProvider()),
+
+        /*ChangeNotifierProxyProvider<Auth, ReservationModel>(
           /*create: (Auth auth, Reservations previousProducts,) => Reservations(
                 auth.token,
                 previousProducts == null ? [] : previousProducts.items,),*/
@@ -42,31 +46,29 @@ void main() {
                 create: (BuildContext context) => ReservationModel(),
 
         ),*/
-        
 
         ChangeNotifierProvider(create: (context) => Reservations()),
-        
-
         ChangeNotifierProvider(create: (context) => User()),
         ChangeNotifierProvider(create: (context) => Users()),
         ChangeNotifierProvider(create: (context) => AppState()),
+        ChangeNotifierProvider(create: (context) => CastFilter()),
       ],
-          child: MaterialApp(
-              home: Consumer<Auth>(
-                  builder: (ctx, auth, _) => MaterialApp(
-                      home: auth.isAuth
-                          ?
+          child:
+              // Abonnement()));
 
-                          MyApp()
-
-                          : FutureBuilder(
-                              future: auth.tryAutoLogin(),
-                              builder: (ctx, authResultSnapshot) =>
-                                  authResultSnapshot.connectionState ==
-                                          ConnectionState.waiting
-                                      ? LoadingScreen()
-                                      : AuthScreen(),
-                            ))))));
+              MaterialApp(
+                  home: Consumer<Auth>(
+                      builder: (ctx, auth, _) => MaterialApp(
+                          home: auth.isAuth
+                              ? MyApp()
+                              : FutureBuilder(
+                                  future: auth.tryAutoLogin(),
+                                  builder: (ctx, authResultSnapshot) =>
+                                      authResultSnapshot.connectionState ==
+                                              ConnectionState.waiting
+                                          ? LoadingScreen() 
+                                          : AuthScreen(),
+                                ))))));
 }
 
 /*class MyMyApp extends StatelessWidget {

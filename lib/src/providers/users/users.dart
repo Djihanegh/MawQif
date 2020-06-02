@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mawqif/src/models/user.dart';
 
 class Users with ChangeNotifier {
@@ -78,7 +76,7 @@ class Users with ChangeNotifier {
 
     //return users.firstWhere((prod) => prod.uid == id );
     for (int i = 0; i < users.length; i++) {
-      print("ELEMENT A " + users.elementAt(i).uid);
+     // print("ELEMENT A " + users.elementAt(i).uid);
       if (users.elementAt(i).uid == id) {
         user.uid = users.elementAt(i).uid;
         user.codePersonnel = users.elementAt(i).codePersonnel;
@@ -92,19 +90,75 @@ class Users with ChangeNotifier {
     }
     if (!found) {
       print("USER NOT FOUND ");
-      Fluttertoast.showToast(
+     /* Fluttertoast.showToast(
           msg: "Veuillez vous connectez svp !",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
           backgroundColor: Colors.red,
           textColor: Colors.white,
-          fontSize: 16.0);
+          fontSize: 16.0);*/
       return null;
     }
 
     return user;
   }
+
+  Future<void> updateProfile(String id , User user) async {
+   // List<User> list = [];
+    try{
+        //  var snapshot =
+     /*   final DocumentReference postRef = Firestore.instance.document('users');
+Firestore.instance.runTransaction((Transaction tx) async {
+  DocumentSnapshot postSnapshot = await tx.get(postRef);
+  if (postSnapshot.exists) {
+    await tx.update(postRef, <String, dynamic>{'likesCount': postSnapshot.data['likesCount'] + 1});
+  }
+});*/
+
+       /*  final collRef = Firestore.instance.collection('gameLevels');
+  DocumentReferance docReference = collRef.document();
+
+  docReferance.setData(map).then((doc) {
+    print('hop ${docReferance.documentID}');
+  }).catchError((error) {
+    print(error);
+  });
+          await Firestore.instance.collection("parking")
+          .where((item) => item.uid == id)
+          .*/
+
+          
+
+          
+
+          {
+     /* if (snapshot.documents.isNotEmpty) {
+        list = snapshot.documents
+            .map((snapshot) => User.fromMap(snapshot.data))
+            .where((mappedItem) => mappedItem.uid== id )
+            .toList();
+
+            list[0]
+
+            list.forEach((item) {
+                    item.email=user.email;
+                    item.telephone=user.telephone;
+                    item.nom=user.nom;
+                    item.prenom=user.prenom;
+                    item.password=user.password;
+                    item.immatriculations=user.immatriculations;
+                    
+            });*/
+
+      }
+    }catch(e)
+      {
+           print(e);
+      }
+      
+  }
+  
 
   void refresh() {
     getUsers();

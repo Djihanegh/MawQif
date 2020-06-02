@@ -8,7 +8,6 @@ import 'marker_icons.dart';
 import 'move_camera.dart';
 import 'padding.dart';
 import 'page.dart';
-import 'package:mawqif/src/map/place_circle.dart';
 import 'place_marker.dart';
 import 'place_polygon.dart';
 import 'place_polyline.dart';

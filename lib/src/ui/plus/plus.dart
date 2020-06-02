@@ -10,8 +10,6 @@ class Plus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      final provider = Provider.of<Auth>(context);
-
-    // TODO: implement build
     return Scaffold(
         appBar: AppBar(
           title: Text(

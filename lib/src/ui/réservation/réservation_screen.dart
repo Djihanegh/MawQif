@@ -34,9 +34,7 @@ class ReservationState extends State<Reservation> {
   }  
   @override
   Widget build(BuildContext context) {
-    //User user = new User();
-    String id = Provider.of<User>(context, listen: false).getCurrentId();
-    //if(user != null)
+   
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[50],
@@ -59,24 +57,35 @@ class ReservationState extends State<Reservation> {
       builder: (ctx, dataSnapshot) {
         if (dataSnapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
-        } else {
-          if (dataSnapshot.error != null) {
+        } else if (dataSnapshot.error != null ) {
+         // if (dataSnapshot.error != null) {
             // ...
             // Do error handling stuff
             return Center(
-              child: Text('An error occurred!'),
+              child: Text('Erreur veuillez réessayer!'),
             );
-          } else {
+         // }
+         }
+          /*else { if(dataSnapshot.data == null ) {
+            return Center(child: Text("Vous n'avez aucune réservation actuellement "),);
+          }*/
+
+          else {
             return Consumer<Reservations>(
               builder: (ctx, orderData, child) => ListView.builder(
                 itemCount: orderData.items.length,
                 itemBuilder: (ctx, i) => 
-                ReservationItems(orderData.items[i]),
+                ReservationItems(orderData.items[i] , i),
               ),
+            
+        
+            
             );
           }
-        }
+         // }
+        //}
       },
+      
     ));
   }
 }

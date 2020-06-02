@@ -5,9 +5,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:location/location.dart';
 
 import 'package:mawqif/src/map/page.dart';
@@ -36,7 +34,6 @@ class MapUiBody extends StatefulWidget {
 class MapUiBodyState extends State<MapUiBody> {
   MapUiBodyState();
   static LatLng latLng= new LatLng(36.9257, 7.7544);
-  static LatLng _initialPosition;
   static final CameraPosition _kInitialPosition =  CameraPosition(
     target: latLng ,
     //LatLng(36.9257, 7.7544),
@@ -45,7 +42,7 @@ class MapUiBodyState extends State<MapUiBody> {
 
   CameraPosition _position = _kInitialPosition;
   bool _isMapCreated = false;
-  bool _isMoving = false;
+  //bool _isMoving = false;
   bool _compassEnabled = true;
   bool _mapToolbarEnabled = true;
   CameraTargetBounds _cameraTargetBounds = CameraTargetBounds.unbounded;
@@ -59,7 +56,7 @@ class MapUiBodyState extends State<MapUiBody> {
   bool _myLocationEnabled = true;
   bool _myLocationButtonEnabled = true;
   GoogleMapController _controller;
-  bool _nightMode = false;
+  //bool _nightMode = false;
 
   @override
   void initState() {
@@ -74,7 +71,7 @@ class MapUiBodyState extends State<MapUiBody> {
     super.dispose();
   }
 
-  Widget _compassToggler() {
+/*  Widget _compassToggler() {
     return FlatButton(
       child: Text('${_compassEnabled ? 'disable' : 'enable'} compass'),
       onPressed: () {
@@ -83,9 +80,9 @@ class MapUiBodyState extends State<MapUiBody> {
         });
       },
     );
-  }
+  }*/
 
-  Widget _mapToolbarToggler() {
+ /* Widget _mapToolbarToggler() {
     return FlatButton(
       child: Text('${_mapToolbarEnabled ? 'disable' : 'enable'} map toolbar'),
       onPressed: () {
@@ -111,9 +108,9 @@ class MapUiBodyState extends State<MapUiBody> {
         });
       },
     );
-  }
+  }*/
 
-  Widget _zoomBoundsToggler() {
+ /* Widget _zoomBoundsToggler() {
     return FlatButton(
       child: Text(_minMaxZoomPreference.minZoom == null
           ? 'bound zoom'
@@ -229,9 +226,9 @@ class MapUiBodyState extends State<MapUiBody> {
       _nightMode = true;
       _controller.setMapStyle(mapStyle);
     });
-  }
+  }*/
 
-  Widget _nightModeToggler() {
+  /*Widget _nightModeToggler() {
     if (!_isMapCreated) {
       return null;
     }
@@ -249,7 +246,7 @@ class MapUiBodyState extends State<MapUiBody> {
       },
     );
   }
-
+*/
   @override
   Widget build(BuildContext context) {
     final GoogleMap googleMap = GoogleMap(

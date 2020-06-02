@@ -49,7 +49,6 @@ class ScrollingMapBody extends StatelessWidget {
                         zoom: 11.0,
                       ),
                       gestureRecognizers:
-                      // TODO(iskakaushik): Remove this when collection literals makes it to stable.
                       // https://github.com/flutter/flutter/issues/28312
                       // ignore: prefer_collection_literals
                       <Factory<OneSequenceGestureRecognizer>>[
@@ -85,7 +84,6 @@ class ScrollingMapBody extends StatelessWidget {
                         zoom: 11.0,
                       ),
                       markers:
-                      // TODO(iskakaushik): Remove this when collection literals makes it to stable.
                       // https://github.com/flutter/flutter/issues/28312
                       // ignore: prefer_collection_literals
                       Set<Marker>.of(
@@ -104,7 +102,6 @@ class ScrollingMapBody extends StatelessWidget {
                         ],
                       ),
                       gestureRecognizers:
-                      // TODO(iskakaushik): Remove this when collection literals makes it to stable.
                       // https://github.com/flutter/flutter/issues/28312
                       // ignore: prefer_collection_literals
                       <Factory<OneSequenceGestureRecognizer>>[

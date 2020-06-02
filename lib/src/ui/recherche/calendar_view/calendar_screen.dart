@@ -7,26 +7,34 @@ import 'package:table_calendar/table_calendar.dart';
 class Calendar extends StatelessWidget with ChangeNotifier {
  
  
-  static DateTime date1;
+  static DateTime date1 , heureD ;
   static TimeOfDay hour = new TimeOfDay.now();
   static var now = DateTime.now();
   static var fmt = DateFormat("HH:mm").format(now);
   static DateTime fmt2;
-  static String debut_ = "début";
+  static String debut = "début";
+
+  DateTime getHeureD() => heureD ;
 
 
   String getFmt() => fmt;
   String get fin {
-    return debut_;
+    return debut;
   }
 
   String getDate() {
-    return debut_;
+    return debut;
   }
 
   void setDate(DateTime value) {
     date1 = value;
-    debut_ = '${date1.year}-${date1.month}-${date1.day}';
+    debut = '${date1.year}-${date1.month}-${date1.day}';
+    notifyListeners();
+  }
+
+  void setHour (DateTime hour )
+  {
+    heureD = hour ;
     notifyListeners();
   }
 
@@ -153,7 +161,11 @@ class Calendar extends StatelessWidget with ChangeNotifier {
                               ),
                               showTitleActions: true, onConfirm: (time) {
                             print('confirm $time');
-                            var hour = '${time.hour} : ${time.minute}';
+                           // heureD = time;
+                                                        Provider.of<Calendar>(context).setHour(time);
+
+                            
+                            //var hour = '${time.hour} : ${time.minute}';
                             var fmt2 = DateFormat("HH:mm").format(time);
                             // var finalHour = DateFormat.H(hour).toString();
                             //Calendar.hh= DateFormat.Hm(time).toString();

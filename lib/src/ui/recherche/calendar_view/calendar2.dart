@@ -5,31 +5,34 @@ import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Calendarr extends StatelessWidget with ChangeNotifier {
-  static String fin_ = "fin";
-  static DateTime date1;
+  static String _fin = "fin";
+  static DateTime date1 , heureF ;
   static TimeOfDay hour = new TimeOfDay.now();
   static var now = DateTime.now();
   static var fmt = DateFormat("HH:mm").format(now);
+
+    DateTime getHeureF()=> heureF ; 
+
   //static var hr = DateTime.now();
   //static var hh = DateFormat.H(DateTime.now()) ;
 
   String getFmt() => fmt;
   String get fin {
-    return fin_;
+    return _fin;
   }
 
   void add(DateTime a, DateTime b) {
-    fin_ = b.toString();
+    _fin = b.toString();
     notifyListeners();
   }
 
   String getDate() {
-    return fin_;
+    return _fin;
   }
 
   void setDate(DateTime value) {
     date1 = value;
-    fin_ = '${date1.year}-${date1.month}-${date1.day}';
+    _fin = '${date1.year}-${date1.month}-${date1.day}';
     notifyListeners();
   }
 
@@ -155,7 +158,8 @@ class Calendarr extends StatelessWidget with ChangeNotifier {
                               ),
                               showTitleActions: true, onConfirm: (time) {
                             print('confirm $time');
-                            var hour = '${time.hour} : ${time.minute}';
+                            heureF = time ;
+                            //var hour = '${time.hour} : ${time.minute}';
                             var fmt2 = DateFormat("HH:mm").format(time);
                             // var finalHour = DateFormat.H(hour).toString();
                             //Calendar.hh= DateFormat.Hm(time).toString();

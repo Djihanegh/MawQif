@@ -247,7 +247,6 @@ class PlaceMarkerBodyState extends State<PlaceMarkerBody> {
 // A breaking change to the ImageStreamListener API affects this sample.
 // I've updates the sample to use the new API, but as we cannot use the new
 // API before it makes it to stable I'm commenting out this sample for now
-// TODO(amirh): uncomment this one the ImageStream API change makes it to stable.
 // https://github.com/flutter/flutter/issues/33438
 //
 //  void _setMarkerIcon(BitmapDescriptor assetIcon) {
@@ -297,7 +296,6 @@ class PlaceMarkerBodyState extends State<PlaceMarkerBody> {
                 target: LatLng(-33.852, 151.211),
                 zoom: 11.0,
               ),
-              // TODO(iskakaushik): Remove this when collection literals makes it to stable.
               // https://github.com/flutter/flutter/issues/28312
               // ignore: prefer_collection_literals
               markers: Set<Marker>.of(markers.values),
@@ -368,7 +366,6 @@ class PlaceMarkerBodyState extends State<PlaceMarkerBody> {
                         // A breaking change to the ImageStreamListener API affects this sample.
                         // I've updates the sample to use the new API, but as we cannot use the new
                         // API before it makes it to stable I'm commenting out this sample for now
-                        // TODO(amirh): uncomment this one the ImageStream API change makes it to stable.
                         // https://github.com/flutter/flutter/issues/33438
                         //
                         // FlatButton(

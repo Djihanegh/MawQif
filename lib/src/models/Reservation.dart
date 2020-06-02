@@ -1,9 +1,12 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mawqif/src/models/parking.dart';
 import 'package:mawqif/src/models/user.dart';
 
 class ReservationModel  extends ChangeNotifier{
-    
+               DatabaseReference dbRef =
+            FirebaseDatabase.instance.reference().child("Reservation");
+     
     String id;
     String nom;
     String rue ;

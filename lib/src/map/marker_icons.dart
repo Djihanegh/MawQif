@@ -58,7 +58,6 @@ class MarkerIconsBodyState extends State<MarkerIconsBody> {
   }
 
   Set<Marker> _createMarker() {
-    // TODO(iskakaushik): Remove this when collection literals makes it to stable.
     // https://github.com/flutter/flutter/issues/28312
     // ignore: prefer_collection_literals
     return <Marker>[
