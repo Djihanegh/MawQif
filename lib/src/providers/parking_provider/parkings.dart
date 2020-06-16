@@ -1,6 +1,5 @@
 import 'dart:collection';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:mawqif/src/models/parking.dart';

@@ -372,7 +372,6 @@ class _MapState extends State<Map> {
       final Set<Marker> _markers = {};
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     latlongs.add(_new);
     latlongs.add(_news);

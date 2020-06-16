@@ -61,9 +61,8 @@ class Search extends StatelessWidget with ChangeNotifier {
     // message = "${_location.latitude} , ${_location.longitude}";
     ville = placemark[0].locality;
     messages = placemark[0].administrativeArea + "," + placemark[0].locality;
-    villelat = 36.926099;
-    //__location.latitude ;
-    villelong = 7.755550;
+    villelat = __location.latitude ;
+    villelong = __location.longitude;
     //Location location = new Location(ville_lat,ville_long);
     GeoPoint points = new GeoPoint(villelat, villelong);
     // __location.longitude ;

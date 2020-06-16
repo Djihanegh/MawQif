@@ -3,8 +3,6 @@ import 'package:mawqif/src/providers/vehicule_provider/vehicule_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
 import 'package:mawqif/src/ui/filtering/filter_chip.dart';
-import 'package:mawqif/src/ui/réservation/authentification/auth_screen.dart';
-
 import './src/models/user.dart';
 import './src/providers/map/states.dart';
 import './src/providers/parking_provider/parkings.dart';
@@ -15,6 +13,8 @@ import './src/ui/recherche/calendar_view/calendar2.dart';
 import './src/ui/recherche/calendar_view/calendar_screen.dart';
 import './src/ui/recherche/search_screen.dart';
 import './src/utils/loading.dart';
+import 'src/ui/reservation/authentification/auth_screen.dart';
+
 var routes = <String, WidgetBuilder>{
   "/home": (BuildContext context) => MyApp(),
   //"/intro": (BuildContext context) => MyApp(),
@@ -36,17 +36,6 @@ void main() {
         ChangeNotifierProvider(create: (context) => Calendar()),
         ChangeNotifierProvider(create: (context) => AppState()),
         ChangeNotifierProvider(create: (context) => VehiculeProvider()),
-
-        /*ChangeNotifierProxyProvider<Auth, ReservationModel>(
-          /*create: (Auth auth, Reservations previousProducts,) => Reservations(
-                auth.token,
-                previousProducts == null ? [] : previousProducts.items,),*/
-           update: (BuildContext context, Auth value, ReservationModel previous)
-               => Reservations(value.token, previous == null ? [] : previous.items,value.userId,),
-                create: (BuildContext context) => ReservationModel(),
-
-        ),*/
-
         ChangeNotifierProvider(create: (context) => Reservations()),
         ChangeNotifierProvider(create: (context) => User()),
         ChangeNotifierProvider(create: (context) => Users()),
@@ -66,7 +55,7 @@ void main() {
                                   builder: (ctx, authResultSnapshot) =>
                                       authResultSnapshot.connectionState ==
                                               ConnectionState.waiting
-                                          ? LoadingScreen() 
+                                          ? LoadingScreen()
                                           : AuthScreen(),
                                 ))))));
 }

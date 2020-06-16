@@ -11,7 +11,7 @@ class Recherche extends StatelessWidget {
   @override
   Widget build(BuildContext inContext) {
     var loadedMessages = Provider.of<Search>(inContext).getMessage();
-   // var heure = Provider.of<Calendar>(inContext).getFmt;
+    // var heure = Provider.of<Calendar>(inContext).getFmt;
 
     return MaterialApp(
         home: DefaultTabController(
@@ -185,17 +185,15 @@ class Recherche extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        height: 30.0,
+                        height: 10.0,
                         width: 100.0,
                       ),
                       Container(
-                          // width: 600.0,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5.0),
                               color: Colors.blue),
                           margin: EdgeInsets.symmetric(
                               vertical: 0, horizontal: 15.0),
-                          //color: Colors.blue,
                           alignment: Alignment.bottomCenter,
                           child: FlatButton(
                             color: Colors.blue,
@@ -214,11 +212,8 @@ class Recherche extends StatelessWidget {
                             },
                           ))
                     ]),
-
-                    //Container(child:Icon(Icons.directions_transit)),
                     Icon(Icons.directions_transit),
                   ],
                 ))));
   }
-
 }

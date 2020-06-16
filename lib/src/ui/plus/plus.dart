@@ -2,7 +2,6 @@ import 'package:device_apps/device_apps.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
-import 'package:mawqif/src/providers/users/users.dart';
 import 'package:mawqif/src/ui/plus/profile.dart';
 import 'package:provider/provider.dart';
 

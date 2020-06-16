@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mawqif/src/models/vehicule.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
 import 'package:mawqif/src/providers/users/users.dart';
 import 'package:mawqif/src/providers/vehicule_provider/vehicule_provider.dart';
 import 'package:mawqif/src/ui/Edit/edit_screen.dart';
-import 'package:mawqif/src/ui/widget/immatricule_item.dart';
 import 'package:mawqif/src/ui/widget/matricule_list.dart';
 import 'package:provider/provider.dart';
 
