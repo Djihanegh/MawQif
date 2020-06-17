@@ -5,7 +5,7 @@ import 'package:google_maps_webservice/places.dart';
 class SearchProvider extends ChangeNotifier {
   String _ville = "Ville..";
 
-  String _messages = "Ville";
+  String _messages = "Ville..";
 
   double _lat;
 

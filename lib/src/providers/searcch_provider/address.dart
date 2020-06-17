@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 class AddressProvider extends ChangeNotifier {
 
-  String address="Ville....";
+  String address;
 
   String get adress => address ;
 

@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mawqif/src/providers/calendar_provider.dart/calendar_provider.dart';
+import 'package:mawqif/src/providers/calendar_provider.dart/fincalendar_provider.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
 import 'package:mawqif/src/ui/widget/qr_code.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +12,6 @@ import 'package:mawqif/src/providers/reservation_provider/reservations.dart';
 import 'package:mawqif/src/models/Reservation.dart';
 import 'package:mawqif/src/models/user.dart';
 import 'package:mawqif/src/ui/recherche/calendar_view/calendar2.dart';
-import 'package:mawqif/src/ui/recherche/calendar_view/calendar_screen.dart';
 import 'package:mawqif/src/ui/recherche/recherche_screen.dart';
 import 'package:uuid/uuid.dart';
 
@@ -38,8 +39,8 @@ class _DraggableSheetState extends State<DraggableSheet> {
 
     Parkings parkNotifier = Provider.of<Parkings>(context);
     int prix = Provider.of<Parkings>(context).currentPark.prix;
-    Calendar calendarNotifier = Provider.of<Calendar>(context);
-    Calendarr claendarFinNotifier = Provider.of<Calendarr>(context);
+    var calendarNotifier = Provider.of<CalendarProvider>(context);
+    var claendarFinNotifier = Provider.of<FinCalendarProvider>(context);
     bool reserver = false;
     bool _isLoading = false;
 

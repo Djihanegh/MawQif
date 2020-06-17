@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mawqif/src/providers/calendar_provider.dart/calendar_provider.dart';
+import 'package:mawqif/src/providers/calendar_provider.dart/fincalendar_provider.dart';
 import 'package:mawqif/src/providers/searcch_provider/address.dart';
 import 'package:mawqif/src/providers/searcch_provider/search_provider.dart';
+import 'package:mawqif/src/providers/vehicule_provider/nomV_provider.dart';
 import 'package:mawqif/src/providers/vehicule_provider/vehicule_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
@@ -32,8 +35,8 @@ void main() {
        ChangeNotifierProvider<SearchProvider>(
           create: (context) => SearchProvider(),
         ),
-        ChangeNotifierProvider(create: (context) => Calendarr()),
-        ChangeNotifierProvider(create: (context) => Calendar()),
+        ChangeNotifierProvider(create: (context) => FinCalendarProvider()),
+        ChangeNotifierProvider(create: (context) => CalendarProvider()),
         ChangeNotifierProvider(create: (context) => AppState()),
         ChangeNotifierProvider(create: (context) => VehiculeProvider()),
         ChangeNotifierProvider(create: (context) => Reservations()),
@@ -47,7 +50,15 @@ void main() {
             cart.setadress = catalog.message;
             return cart;
           },
+           
         ),
+          ChangeNotifierProxyProvider<VehiculeProvider, NomVehiculeProvider>(
+          create: (context) => NomVehiculeProvider(),
+          update: (context, catalog, cart) {
+            cart.setNomV = catalog.nomV;
+            return cart;
+          },)
+     
       ],
           child:
               MaterialApp(

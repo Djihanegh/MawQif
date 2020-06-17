@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mawqif/src/providers/vehicule_provider/vehicule_provider.dart';
+import 'package:provider/provider.dart';
 
 
 class Vehicule extends StatefulWidget  {
-   static String title = "petit,moyen .." ;
+   
   createState() {
     return VehiculeState();
   }
@@ -19,6 +21,7 @@ class VehiculeState extends State<Vehicule> {
     return new MaterialApp(home: Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.blue),
        actions: <Widget>[
          IconButton(
                 icon: Icon(Icons.close, color: Colors.blue,),
@@ -96,6 +99,7 @@ class GridCell extends StatelessWidget
    GridCell({Key key , this.title , this.description , this.imageURL }) : super( key:key);
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<VehiculeProvider>(context);
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -103,9 +107,7 @@ class GridCell extends StatelessWidget
       ),
       child: FlatButton(
         onPressed: (){
-         Vehicule.title = title ;
-         
-          
+          provider.setNom=title;
         },
         child: Column(
           children: [

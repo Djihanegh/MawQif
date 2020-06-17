@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:mawqif/src/providers/calendar_provider.dart/calendar_provider.dart';
+import 'package:mawqif/src/providers/calendar_provider.dart/fincalendar_provider.dart';
 import 'package:mawqif/src/providers/searcch_provider/address.dart';
-import 'package:mawqif/src/providers/searcch_provider/search_provider.dart';
+import 'package:mawqif/src/providers/vehicule_provider/nomV_provider.dart';
 import 'package:mawqif/src/ui/recherche/calendar_view/calendar_screen.dart';
 import 'package:mawqif/src/ui/recherche/parkings_screen.dart';
 import 'package:mawqif/src/ui/recherche/search_screen.dart';
@@ -13,9 +15,10 @@ class Recherche extends StatelessWidget {
   @override
   Widget build(BuildContext inContext) {
     // var loadedMessages = Provider.of<SearchProvider>(inContext).getMessage();
-    final provider = Provider.of<SearchProvider>(inContext);
+    final provider = Provider.of<NomVehiculeProvider>(inContext);
     final providers = Provider.of<AddressProvider>(inContext);
-
+    final calendarProvider = Provider.of<CalendarProvider>(inContext);
+    final finCalendarProvider = Provider.of<FinCalendarProvider>(inContext);
     return MaterialApp(
         home: DefaultTabController(
             length: 2,
@@ -105,7 +108,7 @@ class Recherche extends StatelessWidget {
                                     width: 10.0,
                                   ),
                                   Text(
-                                    Vehicule.title,
+                                    '${provider.nomV}',
                                     style: TextStyle(
                                         fontSize: 18.0,
                                         color: Colors.grey[400]),
@@ -145,7 +148,7 @@ class Recherche extends StatelessWidget {
                                       padding: EdgeInsets.only(left: 43.0),
                                       child: FlatButton(
                                           child: Text(
-                                            '${Provider.of<Calendar>(inContext).getDate()} ',
+                                            '${calendarProvider.getDate()} ',
                                             style: TextStyle(
                                                 fontSize: 16.0,
                                                 color: Colors.grey[400]),
@@ -166,7 +169,7 @@ class Recherche extends StatelessWidget {
                                     Padding(
                                       child: FlatButton(
                                           child: Text(
-                                              '${Provider.of<Calendarr>(inContext).getDate()}',
+                                              '${finCalendarProvider.getDate()}',
                                               style: TextStyle(
                                                   fontSize: 16.0,
                                                   color: Colors.grey[400])),
