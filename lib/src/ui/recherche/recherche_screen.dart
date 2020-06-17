@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:mawqif/src/providers/searcch_provider/address.dart';
+import 'package:mawqif/src/providers/searcch_provider/search_provider.dart';
 import 'package:mawqif/src/ui/recherche/calendar_view/calendar_screen.dart';
 import 'package:mawqif/src/ui/recherche/parkings_screen.dart';
 import 'package:mawqif/src/ui/recherche/search_screen.dart';
@@ -10,8 +12,9 @@ import 'package:mawqif/src/ui/recherche/calendar_view/calendar2.dart';
 class Recherche extends StatelessWidget {
   @override
   Widget build(BuildContext inContext) {
-    var loadedMessages = Provider.of<Search>(inContext).getMessage();
-    // var heure = Provider.of<Calendar>(inContext).getFmt;
+    // var loadedMessages = Provider.of<SearchProvider>(inContext).getMessage();
+    final provider = Provider.of<SearchProvider>(inContext);
+    final providers = Provider.of<AddressProvider>(inContext);
 
     return MaterialApp(
         home: DefaultTabController(
@@ -67,7 +70,7 @@ class Recherche extends StatelessWidget {
                                     width: 10.0,
                                   ),
                                   Text(
-                                    loadedMessages,
+                                    '${providers.address}',
                                     style: TextStyle(
                                         fontSize: 15.0,
                                         color: Colors.grey[400]),

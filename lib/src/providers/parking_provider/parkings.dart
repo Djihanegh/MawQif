@@ -4,10 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:mawqif/src/models/parking.dart';
 import 'package:flutter/material.dart';
+import 'package:mawqif/src/providers/searcch_provider/search_provider.dart';
 import 'package:mawqif/src/ui/filtering/filter_chip.dart';
 import 'dart:math' as MATH;
 
-import 'package:mawqif/src/ui/recherche/search_screen.dart';
 
 class Parkings with ChangeNotifier {
   List<Parking> items = [];
@@ -49,8 +49,8 @@ class Parkings with ChangeNotifier {
     List<Parking> finalList = [];
 
     List<Parking> list = [];
-    Search se = new Search();
-    GeoPoint loc = await se.displayCurrentLocation();
+    SearchProvider service = new SearchProvider();
+    GeoPoint loc = await service.displayCurrentLocation();
    // Dio dio = new Dio();
 
     /*bool couvert = false;

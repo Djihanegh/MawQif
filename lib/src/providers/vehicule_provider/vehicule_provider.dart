@@ -3,6 +3,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:mawqif/src/models/vehicule.dart';
 
 class VehiculeProvider extends ChangeNotifier {
+  
+   String nom ;
+
+   String get nomV => nom ;
+
+   set setNom (String nom ) { this.nom = nom ; notifyListeners(); }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   List<Vehicule> list = [
     Vehicule(immatriculation: "jjfsjeflsd"),
     Vehicule(immatriculation: "chnqijdopqzkdpm"),
