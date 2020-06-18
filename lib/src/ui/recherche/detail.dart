@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mawqif/src/providers/calendar_provider.dart/calendar_provider.dart';
@@ -11,7 +12,6 @@ import 'package:mawqif/src/providers/parking_provider/parkings.dart';
 import 'package:mawqif/src/providers/reservation_provider/reservations.dart';
 import 'package:mawqif/src/models/Reservation.dart';
 import 'package:mawqif/src/models/user.dart';
-import 'package:mawqif/src/ui/recherche/calendar_view/calendar2.dart';
 import 'package:mawqif/src/ui/recherche/recherche_screen.dart';
 import 'package:uuid/uuid.dart';
 
@@ -24,7 +24,6 @@ class DraggableSheet extends StatefulWidget {
 
 class _DraggableSheetState extends State<DraggableSheet> {
   var maxHeight = 0.65;
-  // Auth authh = new Auth ();
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +46,6 @@ class _DraggableSheetState extends State<DraggableSheet> {
     String immatricule;
 
     return Scaffold(
-
         body: DraggableScrollableSheet(
       initialChildSize: 0.25,
       maxChildSize: 1.0,
@@ -101,13 +99,13 @@ class _DraggableSheetState extends State<DraggableSheet> {
                                 ),
                               ),
                               SizedBox(
-                                width: 110,
+                                width: 70,
                               ),
                               //Expanded(child:
                               IconButton(
                                 icon: Icon(Icons.map),
                                 onPressed: () {
-                                 /* Navigator.push(
+                                  /* Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => MyApp()));*/
@@ -294,7 +292,7 @@ class _DraggableSheetState extends State<DraggableSheet> {
                     ],
                   ),
                 ),
-              /*  SizedBox(
+                /*  SizedBox(
                   height: 10,
                 ),
                 Padding(
@@ -323,10 +321,9 @@ class _DraggableSheetState extends State<DraggableSheet> {
                         letterSpacing: 0.2),
                   ),
                 ),*/
-                 SizedBox(
+                SizedBox(
                   height: 30,
                 ),
-              
                 Padding(
                   padding: const EdgeInsets.only(left: 24.0),
                   child: Text(
@@ -341,7 +338,7 @@ class _DraggableSheetState extends State<DraggableSheet> {
                 SizedBox(
                   height: 8,
                 ),
-                 Row(
+                Row(
                   children: <Widget>[
                     SizedBox(
                       width: 20,
@@ -353,7 +350,6 @@ class _DraggableSheetState extends State<DraggableSheet> {
                     Text("Hauteur maximale: $hauteurmaximal m"),
                   ],
                 ),
-               
                 Row(
                   children: <Widget>[
                     SizedBox(
@@ -366,7 +362,7 @@ class _DraggableSheetState extends State<DraggableSheet> {
                     Text("Couvert"),
                   ],
                 ),
-                 Row(
+                Row(
                   children: <Widget>[
                     SizedBox(
                       width: 20,
@@ -414,7 +410,7 @@ class _DraggableSheetState extends State<DraggableSheet> {
                     Text("Pratique avec poussette ou bagage"),
                   ],
                 ),
-               
+
                 /* Padding(
                   padding: const EdgeInsets.only(left: 24.0),
                   child: Text(
@@ -428,12 +424,11 @@ class _DraggableSheetState extends State<DraggableSheet> {
                   ),
                 ),*/
                 Padding(
-                  padding: const EdgeInsets.only(left: 30, top:30),
+                  padding: const EdgeInsets.only(left: 30, top: 30),
                   child: TextFormField(
                     decoration: InputDecoration(hintText: "N° d'immatricule"),
                     onChanged: (value) {
                       immatricule = value;
-                      print("IMMMMMMMMM" + immatricule);
                     },
                   ),
                 ),

@@ -11,7 +11,10 @@ import 'package:mawqif/src/models/user.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
 import 'dart:collection';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
 class Reservations with ChangeNotifier {
+  Auth authh = new Auth();
 //final String authToken = "";
 
   // final String _userId = null;
@@ -55,11 +58,15 @@ class Reservations with ChangeNotifier {
     return items.firstWhere((prod) => prod.id == id);
   }
 
-  
-
   Future<void> fetchAndSetReservations() async {
     const url = 'https://mawqif-6ac74.firebaseio.com/Reservation.json';
-    Auth authh = new Auth();
+    final prefs = await SharedPreferences.getInstance();
+    if (!prefs.containsKey('userData')) {
+      return false;
+    }
+    final extractedUserData =
+        json.decode(prefs.getString('userData')) as Map<String, Object>;
+    final uid = extractedUserData['userId'];
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
@@ -69,10 +76,7 @@ class Reservations with ChangeNotifier {
       final List<ReservationModel> loadedReservations = [];
       extractedData.forEach((resId, resData) {
         String userInfo = User.fromJson(resData['userInfo']).uid;
-        print("userInfooo"+userInfo);
-        //String immatricule = User.fromJson(resData['immatricule']).immatriculations;
-        if (userInfo == authh.userId) {
-          //print(authh.userId);
+        if (userInfo == uid) {
           loadedReservations.add(ReservationModel(
             id: resData['id'],
             heureD: resData['heureD'],
@@ -80,21 +84,17 @@ class Reservations with ChangeNotifier {
             park: Parking.fromJson(resData['park']),
             userInfo: User.fromJson(resData['userInfo']),
             status: resData['status'],
-            
           ));
-        }
-        /*else {
-
-          items = null ;
+        } else {
           return;
-        }*/
+        }
       });
 
       items = loadedReservations;
-      
+
       notifyListeners();
     } catch (error) {
-        print(error);
+      print(error);
     }
   }
 
@@ -111,7 +111,6 @@ class Reservations with ChangeNotifier {
           'userInfo': product.userInfo,
           'codeRes': product.codeReservation,
           'status': product.status,
-          
         }),
       );
       print("reponse = " + response.body);
@@ -121,28 +120,24 @@ class Reservations with ChangeNotifier {
           heureD: product.heureD,
           heureF: product.heureF,
           userInfo: product.userInfo,
-          status: product.status
-
-          );
+          status: product.status);
 
       // items.add(newProduct);
-       reservationItems.insert(0, newProduct); // at the start of the list
+      reservationItems.insert(0, newProduct); // at the start of the list
       notifyListeners();
     } catch (error) {
       print(error);
       throw error;
     }
-    
   }
 
   Future<void> updateProduct(String id, ReservationModel newProduct) async {
     final prodIndex = items.indexWhere((prod) => prod.id == id);
     if (prodIndex >= 0) {
-      final url =
-          'https://mawqif-6ac74.firebaseio.com/Reservation/$id.json';
+      final url = 'https://mawqif-6ac74.firebaseio.com/Reservation/$id.json';
       await http.patch(url,
           body: json.encode({
-           /* 'title': newProduct.title,
+            /* 'title': newProduct.title,
             'description': newProduct.description,
             'imageUrl': newProduct.imageUrl,
             'price': newProduct.prix*/
@@ -155,8 +150,7 @@ class Reservations with ChangeNotifier {
   }
 
   Future<void> deleteProduct(String id) async {
-    final url =
-        'https://mawqif-6ac74.firebaseio.com/Reservation/$id.json';
+    final url = 'https://mawqif-6ac74.firebaseio.com/Reservation/$id.json';
     final existingProductIndex = items.indexWhere((prod) => prod.id == id);
     var existingProduct = items[existingProductIndex];
     items.removeAt(existingProductIndex);
@@ -169,8 +163,6 @@ class Reservations with ChangeNotifier {
     }
     existingProduct = null;
   }
-
-
 
   Auth user = Auth();
   //var userId = Auth.userId ;

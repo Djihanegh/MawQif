@@ -24,7 +24,6 @@ class Parkings with ChangeNotifier {
 
   UnmodifiableListView<Parking> get parkList => UnmodifiableListView(items);
 
-  //Parking get currentPark => _currentPark;
 
   updateUsers(String docID, int nb) {
     Firestore.instance
@@ -51,13 +50,6 @@ class Parkings with ChangeNotifier {
     List<Parking> list = [];
     SearchProvider service = new SearchProvider();
     GeoPoint loc = await service.displayCurrentLocation();
-   // Dio dio = new Dio();
-
-    /*bool couvert = false;
-    bool st = false;
-    bool vd = false;
-    bool pst = false;*/
-
     try {
       var snapshot =
           await Firestore.instance.collection("parking").getDocuments();
@@ -83,9 +75,6 @@ class Parkings with ChangeNotifier {
             await Geolocator().distanceBetween(lat1, long1, lat2, long2);
 
         if (distance2 <= 6000) {
-          //  Response response = await dio.get(
-          //    "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=$lat1,$long1&destinations=$lat2,$long2&key=AIzaSyBJC_yrFukZ8bhvsAsvNgUJhDjwSlRZuPQ");
-          // print("RESPONSEEEEE " == response.data);
           parkList.add(park);
         } else {
           print("no");
@@ -126,13 +115,15 @@ class Parkings with ChangeNotifier {
       } else {
         items = parkList;
       }
-      //notifyListeners();
-
     } catch (error) {
       print(error);
 
       throw error;
     }
+  }
+
+  Stream<QuerySnapshot> getPark() {
+
   }
 
   

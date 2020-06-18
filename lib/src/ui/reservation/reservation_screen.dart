@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:mawqif/src/models/parking.dart';
 import 'package:mawqif/src/models/user.dart';
 import 'package:mawqif/src/providers/reservation_provider/reservations.dart';
-import 'package:mawqif/src/ui/reservation/authentification/auth_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:mawqif/src/ui/widget/reservation_item.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -38,7 +37,7 @@ class ReservationState extends State<Reservation> {
           backgroundColor: Colors.blueGrey[50],
           iconTheme: IconThemeData(color: Colors.blueGrey[800]),
           actions: <Widget>[
-            FlatButton(
+            /*FlatButton(
               child: Text(
                 "Se déconnecter",
                 style: TextStyle(color: Colors.blue),
@@ -49,7 +48,7 @@ class ReservationState extends State<Reservation> {
                   builder: (BuildContext context) => new AuthScreen(),
                 ));
               },
-            ),
+            ),*/
           ],
         ),
         body: FutureBuilder(
@@ -59,13 +58,10 @@ class ReservationState extends State<Reservation> {
             if (dataSnapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
             } else if (dataSnapshot.error != null) {
-              // if (dataSnapshot.error != null) {
-              // ...
-              // Do error handling stuff
               return Center(
                 child: Text('Erreur veuillez réessayer!'),
               );
-              // }
+            
             }
             /*else { if(dataSnapshot.data == null ) {
             return Center(child: Text("Vous n'avez aucune réservation actuellement "),);
