@@ -63,7 +63,7 @@ class ReservationState extends State<Reservation> {
               );
             
             }
-            /*else { if(dataSnapshot.data == null ) {
+            /*else if(dataSnapshot.data == null ) {
             return Center(child: Text("Vous n'avez aucune réservation actuellement "),);
           }*/
 

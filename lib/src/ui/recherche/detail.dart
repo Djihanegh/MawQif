@@ -35,8 +35,9 @@ class _DraggableSheetState extends State<DraggableSheet> {
     bool poussette = Provider.of<Parkings>(context).currentPark.poussettebagage;
     String hauteurmaximal =
         Provider.of<Parkings>(context).currentPark.hauteurmaximale;
+    final resProvider = Provider.of<Reservations>(context);
 
-    Parkings parkNotifier = Provider.of<Parkings>(context);
+    final parkNotifier = Provider.of<Parkings>(context);
     int prix = Provider.of<Parkings>(context).currentPark.prix;
     var calendarNotifier = Provider.of<CalendarProvider>(context);
     var claendarFinNotifier = Provider.of<FinCalendarProvider>(context);
@@ -426,10 +427,14 @@ class _DraggableSheetState extends State<DraggableSheet> {
                 Padding(
                   padding: const EdgeInsets.only(left: 30, top: 30),
                   child: TextFormField(
-                    decoration: InputDecoration(hintText: "N° d'immatricule"),
                     onChanged: (value) {
                       immatricule = value;
                     },
+                    decoration: InputDecoration(
+                        hintText: "N° d'immatricule",
+                        errorText: immatricule == null
+                            ? 'Immatricule est obligatoire'
+                            : null),
                   ),
                 ),
                 SizedBox(
@@ -453,14 +458,16 @@ class _DraggableSheetState extends State<DraggableSheet> {
                         User user = new User(
                             uid: authh.userId, immatriculations: immatricule);
                         CircularProgressIndicator();
-
-                        if (parkNotifier.currentPark.places >= 1) {
+                        bool hasReserved = await resProvider.hasReserved();
+                        if (parkNotifier.currentPark.places >= 1 &&
+                            hasReserved == false &&
+                            immatricule != null) {
                           _isLoading = false;
                           String id = Parkings.findID(parkNotifier.currentPark);
 
                           if (authh.userId != null || currentUser.uid != null) {
                             int nb = parkNotifier.currentPark.places - 1;
-                            Provider.of<Parkings>(context).updatePlaces(id, nb);
+                            parkNotifier.updatePlaces(id, nb);
 
                             int nbUsers = parkNotifier.currentPark.users;
                             nbUsers++;
@@ -477,8 +484,7 @@ class _DraggableSheetState extends State<DraggableSheet> {
                                 userInfo: user,
                                 status: "à venir");
 
-                            Provider.of<Reservations>(context)
-                                .addReservations(product);
+                            resProvider.addReservations(product);
 
                             reserver = true;
 
@@ -515,18 +521,17 @@ class _DraggableSheetState extends State<DraggableSheet> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => Recherche()));
+                        } else if (hasReserved == true) {
+                          Fluttertoast.showToast(
+                              msg: "Vous avez déjà réservé une place !",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
                         }
-                        /*else {
-                            Fluttertoast.showToast(
-                                msg: "Vous avez déjà réservé une place !",
-                                toastLength: Toast.LENGTH_SHORT,
-                                gravity: ToastGravity.CENTER,
-                                timeInSecForIosWeb: 1,
-                                backgroundColor: Colors.red,
-                                textColor: Colors.white,
-                                fontSize: 16.0);
-                          }
-                        }*/
+
                         // reserver== true ?
                         Navigator.push(
                             context,

@@ -100,6 +100,7 @@ class Reservations with ChangeNotifier {
 
   Future<void> addReservations(ReservationModel product) async {
     const url = 'https://mawqif-6ac74.firebaseio.com/Reservation.json';
+
     try {
       final response = await http.post(
         url,
@@ -129,6 +130,38 @@ class Reservations with ChangeNotifier {
       print(error);
       throw error;
     }
+  }
+
+  Future<bool> hasReserved() async {
+    bool hasReserved = false;
+    const url = 'https://mawqif-6ac74.firebaseio.com/Reservation.json';
+
+    final prefs = await SharedPreferences.getInstance();
+    if (!prefs.containsKey('userData')) {
+      return false;
+    }
+    final extractedUserData =
+        json.decode(prefs.getString('userData')) as Map<String, Object>;
+    final uid = extractedUserData['userId'];
+
+    // Checking if the user has previous reservation
+    try {
+      final response = await http.get(url);
+      final extractedData = json.decode(response.body) as Map<String, dynamic>;
+      if (extractedData == null) {
+        return hasReserved = false;
+      }
+      final List<ReservationModel> loadedReservations = [];
+      extractedData.forEach((resId, resData) {
+        String userInfo = User.fromJson(resData['userInfo']).uid;
+        if (userInfo == uid) {
+          hasReserved = true;
+        }
+      });
+    } catch (e) {
+      print(e.toString());
+    }
+    return hasReserved;
   }
 
   Future<void> updateProduct(String id, ReservationModel newProduct) async {
