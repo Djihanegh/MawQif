@@ -14,9 +14,6 @@ import './src/providers/parking_provider/parkings.dart';
 import './src/providers/reservation_provider/reservations.dart';
 import './src/providers/users/users.dart';
 import './src/ui/home_screen.dart';
-import './src/ui/recherche/calendar_view/calendar2.dart';
-import './src/ui/recherche/calendar_view/calendar_screen.dart';
-import './src/ui/recherche/search_screen.dart';
 import './src/utils/loading.dart';
 import 'src/ui/reservation/authentification/auth_screen.dart';
 

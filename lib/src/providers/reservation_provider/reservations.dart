@@ -1,8 +1,6 @@
 import 'dart:convert';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mawqif/src/models/Reservation.dart';
 import 'package:http/http.dart' as http;
 import 'package:mawqif/src/models/http_exception.dart';

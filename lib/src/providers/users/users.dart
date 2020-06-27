@@ -33,14 +33,11 @@ class Users with ChangeNotifier {
     try {
       QuerySnapshot snapshot =
           await Firestore.instance.collection("users").getDocuments();
-      //.orderBy("createdAt", descending: true)
 
       List<User> usersList = [];
 
       snapshot.documents.forEach((document) async {
         User user = User.fromMap(document.data);
-        // print("UID==" + user.uid);
-        //   print("codeP==" + user.codePersonnel);
         usersList.add(user);
       });
       users = usersList;
@@ -74,9 +71,7 @@ class Users with ChangeNotifier {
     User user = new User(uid: null);
     bool found = false;
 
-    //return users.firstWhere((prod) => prod.uid == id );
     for (int i = 0; i < users.length; i++) {
-     // print("ELEMENT A " + users.elementAt(i).uid);
       if (users.elementAt(i).uid == id) {
         user.uid = users.elementAt(i).uid;
         user.codePersonnel = users.elementAt(i).codePersonnel;
@@ -90,14 +85,6 @@ class Users with ChangeNotifier {
     }
     if (!found) {
       print("USER NOT FOUND ");
-     /* Fluttertoast.showToast(
-          msg: "Veuillez vous connectez svp !",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 1,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 16.0);*/
       return null;
     }
 
