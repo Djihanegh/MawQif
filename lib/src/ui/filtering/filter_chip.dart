@@ -33,8 +33,7 @@ class CastFilterState extends State<CastFilter> {
         padding: const EdgeInsets.all(4.0),
         child: FilterChip(
           avatar: CircleAvatar(
-            backgroundColor: Colors.blue,
-            child: Text(actor.initials)),
+              backgroundColor: Colors.blue, child: Text(actor.initials)),
           label: Text(actor.name),
           selected: CastFilter.filters.contains(actor.name),
           onSelected: (bool value) {
@@ -57,7 +56,6 @@ class CastFilterState extends State<CastFilter> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<Parkings>(context);
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -70,7 +68,9 @@ class CastFilterState extends State<CastFilter> {
             Wrap(
               children: actorWidgets.toList(),
             ),
-            SizedBox(height: 450,),
+            SizedBox(
+              height: 450,
+            ),
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5.0), color: Colors.blue),
@@ -90,7 +90,6 @@ class CastFilterState extends State<CastFilter> {
                 },
               ),
             ),
-            // Text('Look for: ${CastFilter.filters.join(', ')}'),
           ],
         ));
   }

@@ -8,7 +8,7 @@ import 'package:mawqif/src/providers/vehicule_provider/vehicule_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
 import 'package:mawqif/src/ui/filtering/filter_chip.dart';
-import './src/models/user.dart';
+import 'src/models/user/user.dart';
 import './src/providers/map/states.dart';
 import './src/providers/parking_provider/parkings.dart';
 import './src/providers/reservation_provider/reservations.dart';
@@ -37,7 +37,7 @@ void main() {
         ChangeNotifierProvider(create: (context) => AppState()),
         ChangeNotifierProvider(create: (context) => VehiculeProvider()),
         ChangeNotifierProvider(create: (context) => Reservations()),
-        ChangeNotifierProvider(create: (context) => User()),
+       // ChangeNotifierProvider(create: (context) => User()),
         ChangeNotifierProvider(create: (context) => Users()),
         ChangeNotifierProvider(create: (context) => AppState()),
         ChangeNotifierProvider(create: (context) => CastFilter()),

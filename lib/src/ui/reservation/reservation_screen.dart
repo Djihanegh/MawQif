@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mawqif/src/models/parking.dart';
-import 'package:mawqif/src/models/user.dart';
+import 'package:mawqif/src/models/parking/parking.dart';
+import 'package:mawqif/src/models/user/user.dart';
 import 'package:mawqif/src/providers/reservation_provider/reservations.dart';
 import 'package:provider/provider.dart';
 import 'package:mawqif/src/ui/widget/reservation_item.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:mawqif/src/models/parking.dart';
-import 'package:mawqif/src/models/user.dart';
+import 'package:mawqif/src/models/parking/parking.dart';
+import 'package:mawqif/src/models/user/user.dart';
 
 class CartItem {
   String heureD;

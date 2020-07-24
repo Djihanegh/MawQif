@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 class Plus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-     final provider = Provider.of<Auth>(context);
+    final provider = Provider.of<Auth>(context);
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -22,7 +22,6 @@ class Plus extends StatelessWidget {
             height: 20,
           ),
           Container(
-            // margin: EdgeInsets.symmetric(horizontal:10),
             child: FlatButton(
               disabledColor: Colors.transparent,
               child: Row(
@@ -51,14 +50,13 @@ class Plus extends StatelessWidget {
                   ),
                 ],
               ),
-              onPressed:  () {
-               if(!provider.isAuth)
-                {
+              onPressed: () {
+                if (!provider.isAuth) {
                   print("LOG IN ");
                 } else {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Profile()));
-               }
+                }
               },
             ),
           ),
@@ -66,7 +64,6 @@ class Plus extends StatelessWidget {
             height: 20,
           ),
           Container(
-              // margin: EdgeInsets.symmetric(horizontal:10),
               child: FlatButton(
             disabledColor: Colors.transparent,
             child: Row(
@@ -93,35 +90,17 @@ class Plus extends StatelessWidget {
                   ),
                   alignment: Alignment.topRight,
                 )
-
-/*Row(children: <Widget>[
-          Icon(Icons.person , color: Colors.blue,),
-          FlatButton(
-            disabledColor: Colors.transparent,
-            child: Text("Mon profil", style: TextStyle(color: Colors.blueGrey[800],fontSize: 20 , fontWeight: FontWeight.w300),), onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> Profile() ));
-      },*/
               ],
-            ), onPressed: () async {
-             // Application apps = await DeviceApps.getApp('MAWQIF_LOC');
-              List<Application> apps = await DeviceApps.getInstalledApplications(onlyAppsWithLaunchIntent: true, includeSystemApps: true);
+            ),
+            onPressed: () async {
+              // Application apps = await DeviceApps.getApp('MAWQIF_LOC');
+              List<Application> apps =
+                  await DeviceApps.getInstalledApplications(
+                      onlyAppsWithLaunchIntent: true, includeSystemApps: true);
               print(apps.toString());
               DeviceApps.openApp('MAWQIF_LOC');
             },
           ))
         ]));
   }
-
-  //],),);
 }
-
-//}
-
-/*
-Row(children: <Widget>[
-          Icon(Icons.person , color: Colors.blue,),
-          FlatButton(
-            disabledColor: Colors.transparent,
-            child: Text("Mon profil", style: TextStyle(color: Colors.blueGrey[800],fontSize: 20 , fontWeight: FontWeight.w300),), onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> Profile() ));
-      },) ,*/

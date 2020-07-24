@@ -19,7 +19,7 @@ class Profile extends StatefulWidget {
 class ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    final vehiculeProvider = Provider.of<VehiculeProvider>(context);
+    //final vehiculeProvider = Provider.of<VehiculeProvider>(context);
     final provider = Provider.of<Users>(context);
     final notifier = Provider.of<Auth>(context);
     return Scaffold(
@@ -122,7 +122,6 @@ class ProfileState extends State<Profile> {
                     SizedBox(
                       height: 5,
                     ),
-                   
                   ],
                 ),
                 IconButton(
@@ -139,22 +138,22 @@ class ProfileState extends State<Profile> {
                                         .viewInsets
                                         .bottom),
                                 child: AddMatriculeScreen())));
-                                  },
+                  },
                 ),
               ],
             ),
           ),
-           Expanded(
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20.0),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20.0),
-                                topRight: Radius.circular(20.0))),
-                        child: TasksList(),
-                      ),
-                    )
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.0),
+                      topRight: Radius.circular(20.0))),
+              child: TasksList(),
+            ),
+          )
         ],
       ),
     );

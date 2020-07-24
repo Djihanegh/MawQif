@@ -21,6 +21,7 @@ class _SearchState extends State<Search> {
   TextEditingController t1 = new TextEditingController();
   void initState() {
     t1 = TextEditingController();
+    super.initState();
   }
 
   void dispose() {
@@ -36,8 +37,9 @@ class _SearchState extends State<Search> {
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
+              centerTitle: true,
               title: const Text(
-                '       Addresse de destination',
+                'Addresse de destination',
                 style: TextStyle(
                     color: Colors.blueGrey, fontStyle: FontStyle.normal),
               ),

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mawqif/src/models/user.dart';
+import 'package:mawqif/src/models/user/user.dart';
 
 class Users with ChangeNotifier {
   List<User> users = [];

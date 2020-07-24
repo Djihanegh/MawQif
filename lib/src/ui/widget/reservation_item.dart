@@ -1,6 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:mawqif/src/models/Reservation.dart';
+import 'package:mawqif/src/models/reservation/reservation.dart';
 import 'package:mawqif/src/providers/reservation_provider/reservations.dart';
 import 'package:provider/provider.dart';
 

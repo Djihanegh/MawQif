@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mawqif/src/models/Reservation.dart';
+import 'package:mawqif/src/models/reservation/reservation.dart';
 import 'package:http/http.dart' as http;
-import 'package:mawqif/src/models/http_exception.dart';
-import 'package:mawqif/src/models/parking.dart';
-import 'package:mawqif/src/models/user.dart';
+import 'package:mawqif/src/models/exception/http_exception.dart';
+import 'package:mawqif/src/models/parking/parking.dart';
+import 'package:mawqif/src/models/user/user.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
 import 'dart:collection';
 

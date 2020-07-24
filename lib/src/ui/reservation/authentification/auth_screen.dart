@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:mawqif/src/models/user.dart';
+import 'package:mawqif/src/models/user/user.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
 import 'package:mawqif/src/ui/reservation/reservation_screen.dart';
 import 'package:mawqif/src/utils/animations.dart';

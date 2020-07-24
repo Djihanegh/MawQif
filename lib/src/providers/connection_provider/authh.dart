@@ -4,10 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
-import 'package:mawqif/src/models/user.dart';
+import 'package:mawqif/src/models/user/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:mawqif/src/models/http_exception.dart';
+import 'package:mawqif/src/models/exception/http_exception.dart';
 
 class Auth with ChangeNotifier {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -65,7 +65,6 @@ class Auth with ChangeNotifier {
           ),
         ),
       );
-      // _autoLogout();
       notifyListeners();
 
       final prefs = await SharedPreferences.getInstance();

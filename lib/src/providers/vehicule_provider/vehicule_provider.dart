@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:mawqif/src/models/vehicule.dart';
+import 'package:mawqif/src/models/vehicule/vehicule.dart';
 
 class VehiculeProvider extends ChangeNotifier {
   String nom="petit,moyen,...";

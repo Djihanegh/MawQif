@@ -2,7 +2,7 @@ import 'dart:collection';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:mawqif/src/models/parking.dart';
+import 'package:mawqif/src/models/parking/parking.dart';
 import 'package:flutter/material.dart';
 import 'package:mawqif/src/providers/searcch_provider/search_provider.dart';
 import 'package:mawqif/src/ui/filtering/filter_chip.dart';
@@ -122,9 +122,6 @@ class Parkings with ChangeNotifier {
     }
   }
 
-  Stream<QuerySnapshot> getPark() {
-
-  }
 
   
   static double calculerDistance(
@@ -160,17 +157,7 @@ class Parkings with ChangeNotifier {
         .setData({'rating': rating}, merge: true);
   }
 
-  /* bool avaiblePark() {
-    int heureDouverture = int.parse(currentPark.heureDouverture);
-    int heureDeFermeture = int.parse(currentPark.heureDeFermeture);
-    int i = heureDeFermeture - heureDouverture;
-    if (i > 1) {
-      return true;
-    } else {
-      return false;
-    }
-  }*/
-
+  
   String horaireDeTravail() {
     String hD = currentPark.heureDouverture;
     String hF = currentPark.heureDeFermeture;
@@ -214,11 +201,11 @@ class Parkings with ChangeNotifier {
     return id;
   }
 
-  bool isFavorite = false;
+  /*bool isFavorite = false;
   void _setFavValue(bool newValue, int i) {
     items[i].liked = newValue;
     notifyListeners();
-  }
+  }*/
 
   void toggleFavoriteStatus(int i, String docID)  {
     items[i].liked = !items[i].liked;
@@ -231,7 +218,6 @@ class Parkings with ChangeNotifier {
          Firestore.instance.collection("parking").document(docID);
      Firestore.instance
         .collection("parking")
-        //.where("id" ,isEqualTo:"docID")
         .document(reference.documentID)
         .setData({'liked': items[i].liked}, merge: true);
   }
