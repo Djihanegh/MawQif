@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mawqif/src/models/parking/parking.dart';
 import 'package:mawqif/src/providers/calendar_provider.dart/calendar_provider.dart';
 import 'package:mawqif/src/providers/calendar_provider.dart/fincalendar_provider.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
@@ -201,26 +202,34 @@ class _DraggableSheetState extends State<DraggableSheet> {
                             uid: authh.userId, immatriculations: immatricule);
                         CircularProgressIndicator();
                         bool hasReserved = await resProvider.hasReserved();
-                        if ( widget.document.data['places'] >= 1 &&
+                        if (widget.document.data['places'] >= 1 &&
                             hasReserved == false &&
                             immatricule != null) {
                           _isLoading = false;
-                          String id = Parkings.findID(parkNotifier.currentPark);
+                          String id = widget.document.data['id'];
 
                           if (authh.userId != null || currentUser.uid != null) {
-                            int nb = parkNotifier.currentPark.places - 1;
+                            int nb = widget.document.data['places'] - 1;
                             parkNotifier.updatePlaces(id, nb);
 
-                            int nbUsers = parkNotifier.currentPark.users;
+                            int nbUsers = widget.document.data['users'];
                             nbUsers++;
 
                             parkNotifier.updateUsers(id, nbUsers);
-                            int profit = parkNotifier.currentPark.profit;
-                            profit = profit + parkNotifier.currentPark.prix;
+                            int profit = widget.document.data['profit'];
+                            profit = profit + widget.document.data['prix'];
                             parkNotifier.updateProfit(id, profit);
+
+                            Parking park = new Parking(
+                                id: widget.document.data['id'],
+                                nom: widget.document.data['nom'],
+                                prix: widget.document.data['prix'],
+                                adresse: widget.document.data['addresse'],
+                                imageURL: widget.document.data['imageUrl']);
+
                             ReservationModel product = new ReservationModel(
                                 id: Uuid.NAMESPACE_URL,
-                                park: parkNotifier.currentPark,
+                                park: park,
                                 heureD: calendarNotifier.getFmt(),
                                 heureF: claendarFinNotifier.getFmt(),
                                 userInfo: user,
@@ -248,7 +257,7 @@ class _DraggableSheetState extends State<DraggableSheet> {
                                 textColor: Colors.white,
                                 fontSize: 16.0);
                           }
-                         } else if ( widget.document.data['places']  == 0) {
+                        } else if (widget.document.data['places'] == 0) {
                           Fluttertoast.showToast(
                               msg: "Parking complet !",
                               toastLength: Toast.LENGTH_SHORT,

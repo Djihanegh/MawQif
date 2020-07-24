@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:mawqif/src/ui/widget/qr_code.dart';
 import 'package:provider/provider.dart';
 import 'package:mawqif/src/providers/reservation_provider/reservations.dart';
-
 class Abonnement extends StatefulWidget {
   String heureD;
   String heureF;
-
+ 
   get id => null;
 
   createState() {

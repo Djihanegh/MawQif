@@ -158,12 +158,7 @@ class Parkings with ChangeNotifier {
   }
 
   
-  String horaireDeTravail() {
-    String hD = currentPark.heureDouverture;
-    String hF = currentPark.heureDeFermeture;
-    return "$hD AM - $hF PM ";
-  }
-
+  
   /*String statusDeParking() {
     if (avaiblePark() == true) {
       currentPark.status = 'Ouvert';
