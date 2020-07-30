@@ -4,6 +4,7 @@ import 'package:mawqif/src/providers/calendar_provider.dart/calendar_provider.da
 import 'package:mawqif/src/providers/calendar_provider.dart/fincalendar_provider.dart';
 import 'package:mawqif/src/providers/searcch_provider/address.dart';
 import 'package:mawqif/src/providers/vehicule_provider/nomV_provider.dart';
+import 'package:mawqif/src/ui/partners/partners.dart';
 import 'package:mawqif/src/ui/recherche/calendar_view/calendar_screen.dart';
 import 'package:mawqif/src/ui/recherche/parkings_screen.dart';
 import 'package:mawqif/src/ui/recherche/search_screen.dart';
@@ -214,7 +215,7 @@ class Recherche extends StatelessWidget {
                               Navigator.push(
                                   inContext,
                                   MaterialPageRoute(
-                                      builder: (context) => ParkingScreen()));
+                                      builder: (context) => PartnerScreen()));
                             },
                           ))
                     ]),

@@ -5,14 +5,13 @@ import 'package:json_annotation/json_annotation.dart';
 
 //part 'parking.g.dart';
 @JsonSerializable()
-
 class Parking {
   DocumentReference docRef =
       Firestore.instance.collection('parking').document();
 
   String id;
   String nom;
-  String adresse;
+  Map<String, dynamic> adresse;
   int places;
   int placesOccupe;
   String imageURL;
@@ -63,9 +62,9 @@ class Parking {
     id = data['id'];
     nom = data['nom'];
     adresse = data['addresse'];
-    // imageURL = data['imageURL'];
+    //imageURL = data['imageURL'];
     prix = data['prix'];
-    rue = data['rue'];
+    // rue = data['rue'];
     location = data['point'];
     places = data['places'];
     status = data['status'];
@@ -76,14 +75,14 @@ class Parking {
     users = data['users'];
     profit = data['profit'];
     nonvalide = data['nonvalide'];
-    rating = data['rating'];
+    //rating = data['rating'];
     liked = data['liked'];
     couvert = data['couvert'];
     eclaire = data['eclaire'];
     videosurveillance = data['videosurveillance'];
     souterrain = data['souterrain'];
     poussettebagage = data['poussettebagage'];
-    hauteurmaximale = data['hauteurmaximale'];
+    //hauteurmaximale = data['hauteurmaximale'];
   }
 
   Map<String, dynamic> toJson() => {

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:mawqif/src/models/parking/parking.dart';
 import 'package:mawqif/src/ui/widget/rating.dart';
 import 'package:mawqif/src/ui/recherche/detail.dart';
 
@@ -13,6 +14,7 @@ class ParkingItem extends StatefulWidget {
   ParkingItem(
     this.document,
     this.i,
+   // this.reservation
   );
 
   @override
@@ -46,7 +48,7 @@ class _ParkingItemState extends State<ParkingItem> {
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,
-          builder: (context) => DraggableSheet(widget.i,widget.document),
+         // builder: (context) => DraggableSheet(widget.i,widget.reservation),
         );
       },
     );
@@ -55,8 +57,8 @@ class _ParkingItemState extends State<ParkingItem> {
   Widget price() {
     return Padding(
       padding: const EdgeInsets.only(right: 12.0),
-      child: Text(
-        '${widget.document.data['prix']}DA',
+      child: Text( '',
+     //   '${widget.reservation.prix}DA',
         style: TextStyle(
             color: Colors.blue, fontWeight: FontWeight.w800, fontSize: 17),
       ),
@@ -68,7 +70,7 @@ class _ParkingItemState extends State<ParkingItem> {
       padding: const EdgeInsets.only(left: 12.0),
       child: StarRating(
         color: Colors.yellow[600],
-        rating: double.parse(widget.document.data['rating']),
+        //rating: double.parse(widget.reservation.rating),
         // onRatingChanged: (rating) =>
         //setState(() => this.rating = rating),
 
@@ -86,8 +88,8 @@ class _ParkingItemState extends State<ParkingItem> {
   }
 
   Widget titleTile() {
-    return Text(
-      '${widget.document.data['nom']}',
+    return Text('ggt',
+    //  '${widget.reservation.nom}',
       style: TextStyle(
           color: Colors.blueGrey[800],
           fontWeight: FontWeight.w700,
@@ -97,8 +99,8 @@ class _ParkingItemState extends State<ParkingItem> {
   }
 
   Widget subtitileListTile() {
-    return Text(
-      '${widget.document.data['addresse']}',
+    return Text("dfe",
+    // '${widget.reservation.adresse}',
       style: TextStyle(
           color: Colors.blueGrey[800],
           fontWeight: FontWeight.w400,
@@ -109,20 +111,20 @@ class _ParkingItemState extends State<ParkingItem> {
 
   Widget trailing() {
     return IconButton(
-      icon: Icon(
-        widget.document.data['liked'] ? Icons.favorite : Icons.favorite_border,
+      icon: Icon( Icons.favorite
+       // widget.document.data['liked'] ? Icons.favorite : Icons.favorite_border,
       ),
       color: Theme.of(context).accentColor,
       onPressed: () {
         setState(() {
           /*provider.toggleFavoriteStatus(
                           widget.i, widget.reservation.id);*/
-          if (widget.document.data['liked'] == true) {
+      /*    if (widget.document.data['liked'] == true) {
             widget.document.data['liked'] = false;
           } else {
             widget.document.data['liked'] = true;
             //provider.fav_items.add(widget.reservation);
-          }
+          }*/
         });
       },
     );

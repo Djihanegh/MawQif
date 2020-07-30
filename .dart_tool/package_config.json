@@ -513,9 +513,15 @@
     },
     {
       "name": "provider",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/provider-4.0.0",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/provider-4.3.1",
       "packageUri": "lib/",
-      "languageVersion": "2.2"
+      "languageVersion": "2.7"
+    },
+    {
+      "name": "provider_utilities",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/git/flutter_provider_utilities-fef6642911474c07310bc047812e2c266b42c915/",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
     },
     {
       "name": "pub_semver",
@@ -668,6 +674,12 @@
       "languageVersion": "2.2"
     },
     {
+      "name": "tuple",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/tuple-1.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "typed_data",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.1.6",
       "packageUri": "lib/",
@@ -734,7 +746,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-07-24T12:58:15.512909Z",
+  "generated": "2020-07-29T17:03:04.323764Z",
   "generator": "pub",
   "generatorVersion": "2.9.0-14.1.beta"
 }

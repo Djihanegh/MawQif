@@ -46,7 +46,7 @@ class AddMatriculeScreen extends StatelessWidget {
                     vehicule = new Vehicule(
                         immatriculation: "sdfsdfsdfs",
                         userId: auth.userId,
-                        vehiculeId: Uuid.NAMESPACE_DNS);
+                        vehiculeId: Uuid.NAMESPACE_DNS, isChecked: null);
                   },
                 ),
                 FlatButton(

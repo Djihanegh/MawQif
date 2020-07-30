@@ -8,11 +8,12 @@ import 'package:mawqif/src/providers/searcch_provider/search_provider.dart';
 import 'package:mawqif/src/ui/filtering/filter_chip.dart';
 import 'dart:math' as MATH;
 
+import 'package:provider_utilities/provider_utilities.dart';
 
-class Parkings with ChangeNotifier {
+class Parkings extends ChangeNotifier with MessageNotifierMixin {
   List<Parking> items = [];
 
-  List<Parking> fav_items= [];
+  List<Parking> fav_items = [];
 
   List<Parking> get parks {
     return [...items];
@@ -23,7 +24,6 @@ class Parkings with ChangeNotifier {
   Parking currentPark;
 
   UnmodifiableListView<Parking> get parkList => UnmodifiableListView(items);
-
 
   updateUsers(String docID, int nb) {
     Firestore.instance
@@ -43,30 +43,100 @@ class Parkings with ChangeNotifier {
     return items.firstWhere((prod) => prod.id == id);
   }
 
-  Future<void> getParks() async {
+  /* Parking _parkInfo(DocumentSnapshot parsedJson) {
+    return Parking(
+      id: parsedJson['id'],
+      nom: parsedJson['nom'],
+      adresse: parsedJson['addresse'],
+      prix: parsedJson['prix'],
+      imageURL: parsedJson[null],
+      users: parsedJson['users'],
+      profit: parsedJson['profit'],
+      rating: parsedJson['rating'],
+      liked: parsedJson['liked'],
+      couvert: parsedJson['couvert'],
+      eclaire: parsedJson['eclaire'],
+      videosurveillance: parsedJson['videosurveillance'],
+      souterrain: parsedJson['souterrain'],
+      poussettebagage: parsedJson['poussettebagage'],
+      hauteurmaximale: parsedJson['hauteurmaximale'],
+    );
+  }*/
+  Future<List<Parking>> getMenuu(String cuisinierId) async {
+    var snapshot = await Firestore.instance
+        .collection('loueur')
+        .document('JAY4Idk3b4gs8kqhGEHt6KS27hg1')
+        .collection('parking')
+        .getDocuments();
+    return snapshot.documents
+        .map((doc) => Parking(
+            id: doc.data['id'],
+            nom: doc.data['nom'],
+            prix: doc.data['prix'],
+            liked: doc.data['liked'],
+            rating: doc.data['rating']
+            //unitPrice: double.parse(doc.data['prix']),
+            //duree: doc.data['duree'],
+            //cuisinierId: doc.data['cuisinierId']
+            ))
+        .toList();
+  }
+
+  Stream<QuerySnapshot> getParks() async* {
     List<Parking> parkList = [];
     List<Parking> finalList = [];
 
     List<Parking> list = [];
+    // List<dynamic> loueurId = [];
     SearchProvider service = new SearchProvider();
     GeoPoint loc = await service.displayCurrentLocation();
+    /*var loueur = await Firestore.instance.collection('loueur').getDocuments();
+    print("OOOK");
+    if (loueur.documents.isNotEmpty) {
+      loueurId = loueur.documents.map((e) => e.data['userId']).toList();
+      print("IDDDDD : $loueurId");
+    }
+    print("NOOOO");
+    for (String id in loueurId) {*/
     try {
-      var snapshot =
-          await Firestore.instance.collection("parking").getDocuments();
+      var snapshot = await Firestore.instance
+          .collection("parking")
+          //   .document(id)
+          // .collection('parking').
+          .getDocuments();
+      /*  .snapshots()
+           
+            .map((event) => event.documents
+                .map((e) => Parking.fromMap(e.data))
+                .where((element) => element.nonvalide != true)).toList();List<Parking> parks=[];
+*/
+      /*for(int i=0 ; i< list.length ; i++ ){
+          parks= list[i];
+          print(parks[i].nom);
+       }*/
+      print("START");
       if (snapshot.documents.isNotEmpty) {
         list = snapshot.documents
             .map((snapshot) => Parking.fromMap(snapshot.data))
             .where((mappedItem) => mappedItem.nonvalide != true)
             .toList();
       }
+      print("OKK");
 
       for (int i = 0; i < list.length; i++) {
+        print("OKKKKKKKKK");
+
+        int a = list.length;
+        print("LENGTH $a");
         Parking park = list.elementAt(i);
 
         GeoPoint points = park.location;
 
         double lat1 = points.latitude;
+        print("$lat1");
         double long1 = points.longitude;
+        print("$long1");
+
         /* USER  COORDINATES */
         double lat2 = loc.latitude;
         double long2 = loc.longitude;
@@ -74,7 +144,7 @@ class Parkings with ChangeNotifier {
         final double distance2 =
             await Geolocator().distanceBetween(lat1, long1, lat2, long2);
 
-        if (distance2 <= 6000) {
+        if (distance2 <= 3000) {
           parkList.add(park);
         } else {
           print("no");
@@ -89,19 +159,19 @@ class Parkings with ChangeNotifier {
                 finalList.add(item);
               }
             });
-          }else if (CastFilter.filters[i] == "Souterrain") {
+          } else if (CastFilter.filters[i] == "Souterrain") {
             parkList.forEach((item) {
               if (item.souterrain == true) {
                 finalList.add(item);
               }
             });
-          }else if (CastFilter.filters[i] == "Vidéo surveillance") {
+          } else if (CastFilter.filters[i] == "Vidéo surveillance") {
             parkList.forEach((item) {
               if (item.videosurveillance == true) {
                 finalList.add(item);
               }
             });
-          }else if (CastFilter.filters[i] == "Eclairé") {
+          } else if (CastFilter.filters[i] == "Eclairé") {
             parkList.forEach((item) {
               if (item.eclaire == true) {
                 finalList.add(item);
@@ -112,18 +182,19 @@ class Parkings with ChangeNotifier {
       }
       if (finalList.isNotEmpty) {
         items = finalList;
+        print("DONNNEEE");
       } else {
         items = parkList;
       }
+      notifyInfo("succeed");
     } catch (error) {
       print(error);
 
-      throw error;
+      notifyError("Ann eroor occured ! $error");
     }
+    //}
   }
 
-
-  
   static double calculerDistance(
       double lat1, double lat2, double long1, double long2) {
     double distance = MATH.cos((MATH.sin(lat1) * MATH.sin(lat2) +
@@ -157,8 +228,6 @@ class Parkings with ChangeNotifier {
         .setData({'rating': rating}, merge: true);
   }
 
-  
-  
   /*String statusDeParking() {
     if (avaiblePark() == true) {
       currentPark.status = 'Ouvert';
@@ -202,20 +271,18 @@ class Parkings with ChangeNotifier {
     notifyListeners();
   }*/
 
-  void toggleFavoriteStatus(int i, String docID)  {
+  void toggleFavoriteStatus(int i, String docID) {
     items[i].liked = !items[i].liked;
-    notifyListeners();  
-    changeStatus( i , docID);}
+    notifyListeners();
+    changeStatus(i, docID);
+  }
 
-    void changeStatus(int i , String docID)  {
-
+  void changeStatus(int i, String docID) {
     DocumentReference reference =
-         Firestore.instance.collection("parking").document(docID);
-     Firestore.instance
+        Firestore.instance.collection("parking").document(docID);
+    Firestore.instance
         .collection("parking")
         .document(reference.documentID)
         .setData({'liked': items[i].liked}, merge: true);
   }
-
-
 }
