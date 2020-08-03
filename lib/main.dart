@@ -8,13 +8,12 @@ import 'package:mawqif/src/providers/vehicule_provider/vehicule_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
 import 'package:mawqif/src/ui/filtering/filter_chip.dart';
-import 'src/models/user/user.dart';
-import './src/providers/map/states.dart';
 import './src/providers/parking_provider/parkings.dart';
 import './src/providers/reservation_provider/reservations.dart';
 import './src/providers/users/users.dart';
 import './src/ui/home_screen.dart';
 import './src/utils/loading.dart';
+import 'src/providers/map/states.dart';
 import 'src/ui/reservation/authentification/auth_screen.dart';
 
 var routes = <String, WidgetBuilder>{
@@ -22,22 +21,21 @@ var routes = <String, WidgetBuilder>{
   //"/intro": (BuildContext context) => MyApp(),
 };
 void main() {
-  runApp(
-      MultiProvider(
-          providers: [
+  runApp(MultiProvider(
+      providers: [
         ChangeNotifierProvider(create: (context) => Auth()),
         ChangeNotifierProvider(
           create: (context) => Parkings(),
         ),
-       ChangeNotifierProvider<SearchProvider>(
+        ChangeNotifierProvider<SearchProvider>(
           create: (context) => SearchProvider(),
         ),
         ChangeNotifierProvider(create: (context) => FinCalendarProvider()),
         ChangeNotifierProvider(create: (context) => CalendarProvider()),
-        ChangeNotifierProvider(create: (context) => AppState()),
+        //ChangeNotifierProvider(create: (context) => AppState()),
         ChangeNotifierProvider(create: (context) => VehiculeProvider()),
         ChangeNotifierProvider(create: (context) => Reservations()),
-       // ChangeNotifierProvider(create: (context) => User()),
+        // ChangeNotifierProvider(create: (context) => User()),
         ChangeNotifierProvider(create: (context) => Users()),
         ChangeNotifierProvider(create: (context) => AppState()),
         ChangeNotifierProvider(create: (context) => CastFilter()),
@@ -47,29 +45,26 @@ void main() {
             cart.setadress = catalog.message;
             return cart;
           },
-           
         ),
-          ChangeNotifierProxyProvider<VehiculeProvider, NomVehiculeProvider>(
+        ChangeNotifierProxyProvider<VehiculeProvider, NomVehiculeProvider>(
           create: (context) => NomVehiculeProvider(),
           update: (context, catalog, cart) {
             cart.setNomV = catalog.nomV;
             return cart;
-          },)
-     
+          },
+        )
       ],
-          child:
-              MaterialApp(
-                  home: Consumer<Auth>(
-                      builder: (ctx, auth, _) => MaterialApp(
-                          home: auth.isAuth
-                              ? MyApp()
-                              : FutureBuilder(
-                                  future: auth.tryAutoLogin(),
-                                  builder: (ctx, authResultSnapshot) =>
-                                      authResultSnapshot.connectionState ==
-                                              ConnectionState.waiting
-                                          ? LoadingScreen()
-                                          : AuthScreen(),
-                                ))))));
+      child: MaterialApp(
+          home: Consumer<Auth>(
+              builder: (ctx, auth, _) => MaterialApp(
+                  home: auth.isAuth
+                      ? MyApp()
+                      : FutureBuilder(
+                          future: auth.tryAutoLogin(),
+                          builder: (ctx, authResultSnapshot) =>
+                              authResultSnapshot.connectionState ==
+                                      ConnectionState.waiting
+                                  ? LoadingScreen()
+                                  : AuthScreen(),
+                        ))))));
 }
-

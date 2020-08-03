@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Calendarr extends StatelessWidget {
-  
   CalendarController _controller = new CalendarController();
 
   void initState() {
@@ -91,15 +90,13 @@ class Calendarr extends StatelessWidget {
                 child: FlatButton(
                     child: Text("Réserver pour maintenant",
                         style: TextStyle(color: Colors.blue)),
-                    onPressed: () {
-                    }),
+                    onPressed: () {}),
               ),
             ),
             Container(
               width: 20.0,
-              height: 20.0,
+              height: 10.0,
             ),
-
             Container(
               margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 115.0),
               decoration: BoxDecoration(
@@ -140,7 +137,7 @@ class Calendarr extends StatelessWidget {
                   )),
             ),
             Container(
-              height: 92,
+              height: 72,
               width: 0,
             ),
             Container(

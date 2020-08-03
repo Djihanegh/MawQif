@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mawqif/src/providers/parking_provider/parkings.dart';
-import 'package:provider/provider.dart';
 
 class ActorFilterEntry {
   const ActorFilterEntry(this.name, this.initials);

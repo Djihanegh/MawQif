@@ -97,7 +97,7 @@ class Calendar extends StatelessWidget {
             ),
             Container(
               width: 20.0,
-              height: 20.0,
+              height: 10.0,
             ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 115.0),
@@ -140,7 +140,7 @@ class Calendar extends StatelessWidget {
                   )),
             ),
             Container(
-              height: 92,
+              height: 72,
               width: 0,
             ),
             Container(

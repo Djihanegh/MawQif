@@ -17,10 +17,11 @@ class _PartnerCardState extends State<PartnerCard> {
   Widget build(BuildContext context) {
     return FlatButton(
       child: Padding(
-        padding: EdgeInsets.only(left: 25.0, top: 25.0, bottom: 10.0),
+        padding:
+            EdgeInsets.only(left: 25.0, top: 25.0, bottom: 10.0, right: 25),
         child: Container(
-            height: 200.0,
-            width: 200.0,
+            height: 170.0,
+            width: 400.0,
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12.0),
@@ -36,16 +37,16 @@ class _PartnerCardState extends State<PartnerCard> {
                   Stack(
                     children: <Widget>[
                       Container(
-                        height: 138.0,
-                        width: 200.0,
+                        height: 100.0,
+                        width: 290.0,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(12.0),
                                 topRight: Radius.circular(12.0)),
-                           /* image: DecorationImage(
+                            image: DecorationImage(
                                 image: NetworkImage(
                                     widget.document.data['imageUrl']),
-                                fit: BoxFit.cover)*/),
+                                fit: BoxFit.cover)),
                       ),
                       /*Padding(
                         padding: const EdgeInsets.all(8.0),

@@ -43,25 +43,6 @@ class Parkings extends ChangeNotifier with MessageNotifierMixin {
     return items.firstWhere((prod) => prod.id == id);
   }
 
-  /* Parking _parkInfo(DocumentSnapshot parsedJson) {
-    return Parking(
-      id: parsedJson['id'],
-      nom: parsedJson['nom'],
-      adresse: parsedJson['addresse'],
-      prix: parsedJson['prix'],
-      imageURL: parsedJson[null],
-      users: parsedJson['users'],
-      profit: parsedJson['profit'],
-      rating: parsedJson['rating'],
-      liked: parsedJson['liked'],
-      couvert: parsedJson['couvert'],
-      eclaire: parsedJson['eclaire'],
-      videosurveillance: parsedJson['videosurveillance'],
-      souterrain: parsedJson['souterrain'],
-      poussettebagage: parsedJson['poussettebagage'],
-      hauteurmaximale: parsedJson['hauteurmaximale'],
-    );
-  }*/
   Future<List<Parking>> getMenuu(String cuisinierId) async {
     var snapshot = await Firestore.instance
         .collection('loueur')
@@ -193,6 +174,19 @@ class Parkings extends ChangeNotifier with MessageNotifierMixin {
       notifyError("Ann eroor occured ! $error");
     }
     //}
+  }
+
+  Future<double> calculateDistance(double lat1, double long1) async {
+    SearchProvider service = new SearchProvider();
+    GeoPoint loc = await service.displayCurrentLocation();
+
+    double lat2 = loc.latitude;
+    double long2 = loc.longitude;
+
+    final double distance2 =
+        await Geolocator().distanceBetween(lat1, long1, lat2, long2);
+
+    return distance2;
   }
 
   static double calculerDistance(

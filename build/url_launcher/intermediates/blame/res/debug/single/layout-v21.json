@@ -1,18 +1,18 @@
 [
     {
-        "merged": "C:\\Users\\3902c\\Desktop\\mawqif\\build\\url_launcher\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\3902c\\Downloads\\gradle-6.5.1\\caches\\transforms-2\\files-2.1\\b011d4b5d2ec7eea4ff52e346e1e6e65\\core-1.1.0\\res\\layout-v21\\notification_template_custom_big.xml"
+        "merged": "C:\\Users\\ZED\\Documents\\MawQif-Client\\build\\url_launcher\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\ZED\\.gradle\\caches\\transforms-2\\files-2.1\\b011d4b5d2ec7eea4ff52e346e1e6e65\\core-1.1.0\\res\\layout-v21\\notification_action.xml"
     },
     {
-        "merged": "C:\\Users\\3902c\\Desktop\\mawqif\\build\\url_launcher\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
-        "source": "C:\\Users\\3902c\\Downloads\\gradle-6.5.1\\caches\\transforms-2\\files-2.1\\b011d4b5d2ec7eea4ff52e346e1e6e65\\core-1.1.0\\res\\layout-v21\\notification_action_tombstone.xml"
+        "merged": "C:\\Users\\ZED\\Documents\\MawQif-Client\\build\\url_launcher\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\ZED\\.gradle\\caches\\transforms-2\\files-2.1\\b011d4b5d2ec7eea4ff52e346e1e6e65\\core-1.1.0\\res\\layout-v21\\notification_action_tombstone.xml"
     },
     {
-        "merged": "C:\\Users\\3902c\\Desktop\\mawqif\\build\\url_launcher\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
-        "source": "C:\\Users\\3902c\\Downloads\\gradle-6.5.1\\caches\\transforms-2\\files-2.1\\b011d4b5d2ec7eea4ff52e346e1e6e65\\core-1.1.0\\res\\layout-v21\\notification_template_icon_group.xml"
+        "merged": "C:\\Users\\ZED\\Documents\\MawQif-Client\\build\\url_launcher\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\ZED\\.gradle\\caches\\transforms-2\\files-2.1\\b011d4b5d2ec7eea4ff52e346e1e6e65\\core-1.1.0\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
-        "merged": "C:\\Users\\3902c\\Desktop\\mawqif\\build\\url_launcher\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
-        "source": "C:\\Users\\3902c\\Downloads\\gradle-6.5.1\\caches\\transforms-2\\files-2.1\\b011d4b5d2ec7eea4ff52e346e1e6e65\\core-1.1.0\\res\\layout-v21\\notification_action.xml"
+        "merged": "C:\\Users\\ZED\\Documents\\MawQif-Client\\build\\url_launcher\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\ZED\\.gradle\\caches\\transforms-2\\files-2.1\\b011d4b5d2ec7eea4ff52e346e1e6e65\\core-1.1.0\\res\\layout-v21\\notification_template_icon_group.xml"
     }
 ]

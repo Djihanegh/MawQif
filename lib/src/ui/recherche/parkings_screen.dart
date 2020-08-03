@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mawqif/src/models/parking/parking.dart';
-import 'package:mawqif/src/providers/parking_provider/parkings.dart';
 import 'package:mawqif/src/ui/filtering/filter_chip.dart';
 import 'package:mawqif/src/ui/widget/parkingItem.dart';
-import 'package:provider/provider.dart';
 
 class ParkingScreen extends StatefulWidget {
   final DocumentSnapshot document;
@@ -20,7 +18,7 @@ class ParkingScreen extends StatefulWidget {
 class ParkingState extends State<ParkingScreen> {
   List<Parking> list = [];
   initState() {
-   /* Parkings parkNotifier = Provider.of<Parkings>(context, listen: false);
+    /* Parkings parkNotifier = Provider.of<Parkings>(context, listen: false);
    setState(() {
      list=parkNotifier.getMenuu(widget.document.data["userId"]) as List<Parking>;
    });  */
@@ -29,7 +27,6 @@ class ParkingState extends State<ParkingScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blueGrey[50],
@@ -44,7 +41,7 @@ class ParkingState extends State<ParkingScreen> {
             )
           ],
         ),
-        body: 
+        body:
             /*parkNotifier.items == null
             ? Text("vide")
             : StreamBuilder<QuerySnapshot>(
@@ -87,16 +84,19 @@ class ParkingState extends State<ParkingScreen> {
                   }
                 })*/
 
-        SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                new Container(height: 500, child: parksList(context, widget.document.data['userId'])),
-              ],
-            ))
-            // parkNotifier.items.isEmpty ?  Center(child: CircularProgressIndicator()) :
-           /* FutureBuilder<List<Parking>>(
+            SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    new Container(
+                        height: 500,
+                        child:
+                            parksList(context, widget.document.data['userId'])),
+                  ],
+                ))
+        // parkNotifier.items.isEmpty ?  Center(child: CircularProgressIndicator()) :
+        /* FutureBuilder<List<Parking>>(
                 future: parkNotifier.getMenuu(widget.document.data['userId']),
                 builder: (BuildContext context, AsyncSnapshot dataSnapshot) {
                   if (dataSnapshot.connectionState == ConnectionState.waiting) {
@@ -118,34 +118,35 @@ class ParkingState extends State<ParkingScreen> {
                           ParkingItem(dataSnapshot.data.documents[i], i),
                     );
                   }
-                })*/);
+                })*/
+        );
   }
 
-  Widget parksList(BuildContext context , String id) {
-   // Parkings parkNotifier = Provider.of<Parkings>(context);
+  Widget parksList(BuildContext context, String id) {
+    // Parkings parkNotifier = Provider.of<Parkings>(context);
 
     return StreamBuilder<QuerySnapshot>(
-            stream: 
-            Firestore.instance
+        stream: Firestore.instance
             .collection('loueur')
             .document(id)
             .collection('parking')
             .snapshots(),
-            builder: (context, snapshot) {
-             // Parking park = snapshot.data;
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
-              } else {
-                if (snapshot.error != null) {
-                  return Center(
-                    child: Text('An error occurred!'),
-                  );
-                }/* else {
+        builder: (context, snapshot) {
+          // Parking park = snapshot.data;
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else {
+            if (snapshot.error != null) {
+              return Center(
+                child: Text('An error occurred!'),
+              );
+            }
+            /* else {
                   if (parkNotifier.items == null) {
                     print("VIDE");
-                  } *//*else {
+                  } */ /*else {
                     print("non vide ");*/
-                    /*return new ListView.builder(
+            /*return new ListView.builder(
               itemCount: snapshot.data.documents.length,
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
@@ -154,16 +155,12 @@ class ParkingState extends State<ParkingScreen> {
                 return ParkingItem(document, index);
               },
             );*/
-              }
-                    return ListView.builder(
-                      itemCount: snapshot.data.documents.length,
-                      itemBuilder: (ctx, i) =>
-                          ParkingItem(snapshot.data.documents[i] , i),
-                    );
-                  
-                }
-              
-            );
+          }
+          return ListView.builder(
+            itemCount: snapshot.data.documents.length,
+            itemBuilder: (ctx, i) => ParkingItem(snapshot.data.documents[i], i),
+          );
+        });
   }
 
   /* Widget chefList(BuildContext context) {

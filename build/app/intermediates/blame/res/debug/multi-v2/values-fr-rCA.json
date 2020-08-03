@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\3902c\\Desktop\\mawqif\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr-rCA\\values-fr-rCA.xml",
+            "outputFile": "C:\\Users\\ZED\\Documents\\MawQif-Client\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr-rCA\\values-fr-rCA.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\3902c\\Downloads\\gradle-6.5.1\\caches\\transforms-2\\files-2.1\\81210846d5d1a7a190b6c9bb89028871\\jetified-play-services-basement-17.0.0\\res\\values-fr-rCA\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "219",
-                        "endOffsets": "470"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1326",
-                        "endColumns": "219",
-                        "endOffsets": "1541"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\3902c\\Downloads\\gradle-6.5.1\\caches\\transforms-2\\files-2.1\\8ac2c71cc9965485e4fc4eaca5d4253a\\play-services-base-17.1.0\\res\\values-fr-rCA\\values.xml",
+                    "source": "C:\\Users\\ZED\\.gradle\\caches\\transforms-2\\files-2.1\\8ac2c71cc9965485e4fc4eaca5d4253a\\play-services-base-17.1.0\\res\\values-fr-rCA\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\3902c\\Downloads\\gradle-6.5.1\\caches\\transforms-2\\files-2.1\\b011d4b5d2ec7eea4ff52e346e1e6e65\\core-1.1.0\\res\\values-fr-rCA\\values-fr-rCA.xml",
+                    "source": "C:\\Users\\ZED\\.gradle\\caches\\transforms-2\\files-2.1\\b011d4b5d2ec7eea4ff52e346e1e6e65\\core-1.1.0\\res\\values-fr-rCA\\values-fr-rCA.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -52,6 +35,23 @@
                         "startOffsets": "3006",
                         "endColumns": "100",
                         "endOffsets": "3102"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ZED\\.gradle\\caches\\transforms-2\\files-2.1\\a11d18a15a64738891221e3f82543ee0\\jetified-play-services-basement-17.0.0\\res\\values-fr-rCA\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "219",
+                        "endOffsets": "470"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1326",
+                        "endColumns": "219",
+                        "endOffsets": "1541"
                     }
                 }
             ]

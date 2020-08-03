@@ -20,7 +20,7 @@ class PartnerScreenState extends State<PartnerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Parkings parkNotifier = Provider.of<Parkings>(context);
+    // Parkings parkNotifier = Provider.of<Parkings>(context);
 
     return Scaffold(
         appBar: AppBar(

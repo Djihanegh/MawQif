@@ -23,12 +23,11 @@ class _TopScreenState extends State<TopScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               title(),
-              address(),
+              //  address(),
               SizedBox(
                 height: 10,
               ),
               places()
-              
             ],
             //)
           ),
@@ -70,7 +69,7 @@ class _TopScreenState extends State<TopScreen> {
     );
   }
 
-  Widget address() {
+  /*Widget address() {
     return Text(
       widget.document.data['addresse'],
       style: TextStyle(
@@ -79,43 +78,41 @@ class _TopScreenState extends State<TopScreen> {
           fontSize: 12,
           letterSpacing: 0.2),
     );
-  }
+  }*/
 
   Widget places() {
     return Row(
-                children: <Widget>[
-                  Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: Icon(
-                        Icons.local_parking,
-                        size: 16,
-                        color: Colors.white,
-                      ),
-                    ),
-                    color: Colors.grey[900],
-                    elevation: 4,
-                  ),
-                  SizedBox(
-                    width: 4,
-                  ),
-                  Text(
-                    "${widget.document.data['places']} places",
-                    style:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 12.4),
-                  ),
-                  SizedBox(
-                    width: 24,
-                  ),
-                  SizedBox(
-                    width: 4,
-                  ),
-                  Text(
-                    "${widget.document.data['prix']} DA",
-                    style:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 12.4),
-                  )
-                ],
-              );
+      children: <Widget>[
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: Icon(
+              Icons.local_parking,
+              size: 16,
+              color: Colors.white,
+            ),
+          ),
+          color: Colors.grey[900],
+          elevation: 4,
+        ),
+        SizedBox(
+          width: 4,
+        ),
+        Text(
+          "${widget.document.data['places']} places",
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12.4),
+        ),
+        SizedBox(
+          width: 24,
+        ),
+        SizedBox(
+          width: 4,
+        ),
+        Text(
+          "${widget.document.data['prix']} DA",
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12.4),
+        )
+      ],
+    );
   }
 }
