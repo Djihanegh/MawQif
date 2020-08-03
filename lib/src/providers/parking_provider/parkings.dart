@@ -189,13 +189,13 @@ class Parkings extends ChangeNotifier with MessageNotifierMixin {
     return distance2;
   }
 
-  static double calculerDistance(
+  /*static double calculerDistance(
       double lat1, double lat2, double long1, double long2) {
     double distance = MATH.cos((MATH.sin(lat1) * MATH.sin(lat2) +
             MATH.cos(lat1) * MATH.cos(lat2) * MATH.cos(long1 - long2))) *
         6371;
     return distance;
-  }
+  }*/
 
   static double calculerDistancee(
       double lat1, double lon1, double lat2, double lon2) {
@@ -233,7 +233,7 @@ class Parkings extends ChangeNotifier with MessageNotifierMixin {
     //notifyListeners();
   }*/
 
-  static String findID(Parking park) {
+  /*static String findID(Parking park) {
     String id;
 
     if (park.nom == "Parking stambouli") {
@@ -257,7 +257,7 @@ class Parkings extends ChangeNotifier with MessageNotifierMixin {
       id = "8BFV4rgtIaSlRoeXEBsY";
     }
     return id;
-  }
+  }*/
 
   /*bool isFavorite = false;
   void _setFavValue(bool newValue, int i) {

@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mawqif/src/providers/parking_provider/parkings.dart';
+import 'package:mawqif/src/providers/searcch_provider/search_provider.dart';
 import 'package:mawqif/src/ui/recherche/detail.dart';
 import 'package:mawqif/src/ui/widget/rating.dart';
 import 'package:provider/provider.dart';
+import 'dart:math' as MATH;
 
 @immutable
 class ParkingItem extends StatefulWidget {
@@ -34,7 +36,7 @@ class _ParkingItemState extends State<ParkingItem> {
             children: <Widget>[
               listTile(),
               row(),
-              distance(),
+              // distance(),
             ],
           ),
         ),
@@ -60,16 +62,26 @@ class _ParkingItemState extends State<ParkingItem> {
     );
   }
 
-  Widget distance() {
+  /*Widget distance() async{
     final provider = Provider.of<Parkings>(context);
+        SearchProvider service = new SearchProvider();
+    GeoPoint loc = await service.displayCurrentLocation();
+
+    double lat2 = loc.latitude;
+    double long2 = loc.longitude;
+
     GeoPoint point = widget.document.data['point'];
     double lat1 = point.latitude;
     double long1 = point.longitude;
 
-    Future<double> distance = provider.calculateDistance(lat1, long1);
+    double distance = MATH.cos((MATH.sin(lat1) * MATH.sin(lat2) +
+            MATH.cos(lat1) * MATH.cos(lat2) * MATH.cos(long1 - long2))) *
+        6371;
+    
+    String a = distance.toString();
 
-    return Text("$distance");
-  }
+    return Text("$a");
+  }*/
 
   Widget ratingwidget() {
     return Padding(

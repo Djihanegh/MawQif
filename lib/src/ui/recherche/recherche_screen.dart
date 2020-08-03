@@ -6,7 +6,6 @@ import 'package:mawqif/src/providers/searcch_provider/address.dart';
 import 'package:mawqif/src/providers/vehicule_provider/nomV_provider.dart';
 import 'package:mawqif/src/ui/partners/partners.dart';
 import 'package:mawqif/src/ui/recherche/calendar_view/calendar_screen.dart';
-import 'package:mawqif/src/ui/recherche/parkings_screen.dart';
 import 'package:mawqif/src/ui/recherche/search_screen.dart';
 import 'package:mawqif/src/ui/widget/vehicule_type.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +14,6 @@ import 'package:mawqif/src/ui/recherche/calendar_view/calendar2.dart';
 class Recherche extends StatelessWidget {
   @override
   Widget build(BuildContext inContext) {
-    // var loadedMessages = Provider.of<SearchProvider>(inContext).getMessage();
     final provider = Provider.of<NomVehiculeProvider>(inContext);
     final providers = Provider.of<AddressProvider>(inContext);
     final calendarProvider = Provider.of<CalendarProvider>(inContext);
@@ -24,7 +22,8 @@ class Recherche extends StatelessWidget {
         home: DefaultTabController(
             length: 2,
             child: Scaffold(
-                appBar: AppBar(
+                appBar: //PreferredSizeWidget( preferredSize:,
+                    AppBar(
                   backgroundColor: Colors.white,
                   bottom: TabBar(tabs: [
                     Tab(
