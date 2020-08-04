@@ -25,15 +25,19 @@ class Parkings extends ChangeNotifier with MessageNotifierMixin {
 
   UnmodifiableListView<Parking> get parkList => UnmodifiableListView(items);
 
-  updateUsers(String docID, int nb) {
+  updateUsers(String docID, int nb, String ownerId) {
     Firestore.instance
+        .collection("loueur")
+        .document(ownerId)
         .collection("parking")
         .document(docID)
         .setData({'users': nb}, merge: true);
   }
 
-  updateProfit(String docID, int prix) {
+  updateProfit(String docID, int prix, String ownerId) {
     Firestore.instance
+        .collection("loueur")
+        .document(ownerId)
         .collection("parking")
         .document(docID)
         .setData({'profit': prix}, merge: true);
@@ -208,15 +212,19 @@ class Parkings extends ChangeNotifier with MessageNotifierMixin {
     return 12742 * MATH.asin(MATH.sqrt(a)); // 2 * R; R = 6371 km
   }
 
-  updatePlaces(String docID, int newplaces) {
+  updatePlaces(String docID, int newplaces, String ownerId) {
     Firestore.instance
+        .collection("loueur")
+        .document(ownerId)
         .collection("parking")
         .document(docID)
         .setData({'places': newplaces}, merge: true);
   }
 
-  updateRatingStars(String rating, String docID) {
+  updateRatingStars(String rating, String docID, String ownerId) {
     Firestore.instance
+        .collection("loueur")
+        .document(ownerId)
         .collection("parking")
         .document(docID)
         .setData({'rating': rating}, merge: true);

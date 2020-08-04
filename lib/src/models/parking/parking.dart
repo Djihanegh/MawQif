@@ -37,6 +37,7 @@ class Parking {
   bool videosurveillance;
   bool poussettebagage;
   String hauteurmaximale;
+  String ownerId;
   Parking({
     @required this.id,
     @required this.nom,
@@ -96,7 +97,6 @@ class Parking {
         'profit': profit,
         'rating': rating,
         'liked': liked,
-        'id': docRef.documentID,
       };
 
   factory Parking.fromJson(Map<String, dynamic> parsedJson) {

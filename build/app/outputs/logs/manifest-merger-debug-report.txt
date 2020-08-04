@@ -1,10 +1,10 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-37:12
-INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-37:12
-INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-37:12
-INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-37:12
-MERGED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-37:12
+ADDED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-38:12
+INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-38:12
+INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-38:12
+INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-38:12
+MERGED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-38:12
 MERGED from [:location] C:\Users\ZED\Documents\MawQif-Client\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-10:12
 MERGED from [:cloud_firestore] C:\Users\ZED\Documents\MawQif-Client\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:geolocator] C:\Users\ZED\Documents\MawQif-Client\build\geolocator\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
@@ -16,9 +16,11 @@ MERGED from [:firebase_database] C:\Users\ZED\Documents\MawQif-Client\build\fire
 MERGED from [:firebase_core] C:\Users\ZED\Documents\MawQif-Client\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core_web] C:\Users\ZED\Documents\MawQif-Client\build\firebase_core_web\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:geocoder] C:\Users\ZED\Documents\MawQif-Client\build\geocoder\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:package_info] C:\Users\ZED\Documents\MawQif-Client\build\package_info\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:firebase_auth_web] C:\Users\ZED\Documents\MawQif-Client\build\firebase_auth_web\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:google_maps_flutter] C:\Users\ZED\Documents\MawQif-Client\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences] C:\Users\ZED\Documents\MawQif-Client\build\shared_preferences\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:firebase_dynamic_links] C:\Users\ZED\Documents\MawQif-Client\build\firebase_dynamic_links\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:url_launcher] C:\Users\ZED\Documents\MawQif-Client\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
 MERGED from [:url_launcher_macos] C:\Users\ZED\Documents\MawQif-Client\build\url_launcher_macos\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences_macos] C:\Users\ZED\Documents\MawQif-Client\build\shared_preferences_macos\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
@@ -28,12 +30,14 @@ MERGED from [:fluttertoast] C:\Users\ZED\Documents\MawQif-Client\build\flutterto
 MERGED from [:google_sign_in_web] C:\Users\ZED\Documents\MawQif-Client\build\google_sign_in_web\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:location_permissions] C:\Users\ZED\Documents\MawQif-Client\build\location_permissions\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:device_apps] C:\Users\ZED\Documents\MawQif-Client\build\device_apps\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_secure_storage] C:\Users\ZED\Documents\MawQif-Client\build\flutter_secure_storage\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\c7d953acc55dc4b3e953472bb182ad56\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ae936e42205d23ddab410b388bea9015\firebase-auth-19.2.0\AndroidManifest.xml:17:1-42:12
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\e74dca4e4c2fd19bae3b53d27f43a97e\play-services-maps-17.0.0\AndroidManifest.xml:17:1-38:12
 MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\d01da873e082fc4449bc55be3c77cccf\jetified-play-services-location-16.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\22f58b309d21281990de9bfcb95c3476\jetified-firebase-firestore-21.3.0\AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ea047754656839202ec88f76a50a02e4\jetified-firebase-database-17.0.0\AndroidManifest.xml:15:1-36:12
+MERGED from [com.google.firebase:firebase-dynamic-links:16.1.8] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\3cdab3e9a68a049fca280906f73bcae0\jetified-firebase-dynamic-links-16.1.8\AndroidManifest.xml:2:1-15:12
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\327c7201b4916aaeadaad491d49f0473\firebase-auth-interop-19.0.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\8f3bd30fe9c69799bda711fceb9a4dc3\jetified-firebase-common-19.3.0\AndroidManifest.xml:15:1-39:12
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\03590c454c6282bf19f10a4cb17ca94c\jetified-play-services-auth-16.0.1\AndroidManifest.xml:17:1-39:12
@@ -42,6 +46,7 @@ MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] C:\User
 MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\aed7523c3b5ee4be1eb94ed57d0b4ed0\jetified-play-services-auth-base-16.0.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\8ac2c71cc9965485e4fc4eaca5d4253a\play-services-base-17.1.0\AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\0bef4825910dfde9d1394554b46b96ad\play-services-tasks-17.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\6d2a52f33cb7e9f009300e1269b8c534\jetified-firebase-measurement-connector-17.0.1\AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\a11d18a15a64738891221e3f82543ee0\jetified-play-services-basement-17.0.0\AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\930ba79d9afd52964b42c14f0053fe4b\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\6dcfe9c402810aa38a8828de540d52b6\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -61,20 +66,20 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\ZED\.gradle\
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\2453a49903788301b55f3eb2bce28216\grpc-android-1.21.0\AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.firebase:firebase-database-collection:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\1fb40f0c6b29d006bbe5da0d4638a737\firebase-database-collection-17.0.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:protolite-well-known-types:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\4540f6c8d8363aa1a0b057653d22290a\protolite-well-known-types-17.0.0\AndroidManifest.xml:2:1-11:12
-INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\debug\AndroidManifest.xml:1:1-7:12
-INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\debug\AndroidManifest.xml:1:1-7:12
-INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\debug\AndroidManifest.xml:1:1-8:12
+INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\debug\AndroidManifest.xml:1:1-8:12
+INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\debug\AndroidManifest.xml:1:1-8:12
 	package
 		ADDED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:2:5-33
 		INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-37:12
+		ADDED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-38:12
 		INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\debug\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-37:12
+		ADDED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:1-38:12
 		INJECTED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:1:11-69
@@ -94,6 +99,8 @@ MERGED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidMan
 MERGED from C:\Users\ZED\Documents\MawQif-Client\android\app\src\main\AndroidManifest.xml:36:5-67
 MERGED from [:google_sign_in] C:\Users\ZED\Documents\MawQif-Client\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-67
 MERGED from [:google_sign_in] C:\Users\ZED\Documents\MawQif-Client\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-67
+MERGED from [:firebase_dynamic_links] C:\Users\ZED\Documents\MawQif-Client\build\firebase_dynamic_links\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-67
+MERGED from [:firebase_dynamic_links] C:\Users\ZED\Documents\MawQif-Client\build\firebase_dynamic_links\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-67
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\e74dca4e4c2fd19bae3b53d27f43a97e\play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\e74dca4e4c2fd19bae3b53d27f43a97e\play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\22f58b309d21281990de9bfcb95c3476\jetified-firebase-firestore-21.3.0\AndroidManifest.xml:14:5-67
@@ -112,6 +119,8 @@ MERGED from [:firebase_database] C:\Users\ZED\Documents\MawQif-Client\build\fire
 MERGED from [:firebase_database] C:\Users\ZED\Documents\MawQif-Client\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] C:\Users\ZED\Documents\MawQif-Client\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] C:\Users\ZED\Documents\MawQif-Client\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_dynamic_links] C:\Users\ZED\Documents\MawQif-Client\build\firebase_dynamic_links\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-15:19
+MERGED from [:firebase_dynamic_links] C:\Users\ZED\Documents\MawQif-Client\build\firebase_dynamic_links\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:url_launcher] C:\Users\ZED\Documents\MawQif-Client\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
 MERGED from [:url_launcher] C:\Users\ZED\Documents\MawQif-Client\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
 MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ae936e42205d23ddab410b388bea9015\firebase-auth-19.2.0\AndroidManifest.xml:23:5-40:19
@@ -124,6 +133,8 @@ MERGED from [com.google.firebase:firebase-firestore:21.3.0] C:\Users\ZED\.gradle
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\22f58b309d21281990de9bfcb95c3476\jetified-firebase-firestore-21.3.0\AndroidManifest.xml:16:5-24:19
 MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ea047754656839202ec88f76a50a02e4\jetified-firebase-database-17.0.0\AndroidManifest.xml:28:5-34:19
 MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ea047754656839202ec88f76a50a02e4\jetified-firebase-database-17.0.0\AndroidManifest.xml:28:5-34:19
+MERGED from [com.google.firebase:firebase-dynamic-links:16.1.8] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\3cdab3e9a68a049fca280906f73bcae0\jetified-firebase-dynamic-links-16.1.8\AndroidManifest.xml:7:5-13:19
+MERGED from [com.google.firebase:firebase-dynamic-links:16.1.8] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\3cdab3e9a68a049fca280906f73bcae0\jetified-firebase-dynamic-links-16.1.8\AndroidManifest.xml:7:5-13:19
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\327c7201b4916aaeadaad491d49f0473\firebase-auth-interop-19.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\327c7201b4916aaeadaad491d49f0473\firebase-auth-interop-19.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\8f3bd30fe9c69799bda711fceb9a4dc3\jetified-firebase-common-19.3.0\AndroidManifest.xml:25:5-37:19
@@ -136,6 +147,8 @@ MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\ZED\.gra
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\8ac2c71cc9965485e4fc4eaca5d4253a\play-services-base-17.1.0\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\0bef4825910dfde9d1394554b46b96ad\play-services-tasks-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\0bef4825910dfde9d1394554b46b96ad\play-services-tasks-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\6d2a52f33cb7e9f009300e1269b8c534\jetified-firebase-measurement-connector-17.0.1\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\6d2a52f33cb7e9f009300e1269b8c534\jetified-firebase-measurement-connector-17.0.1\AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\a11d18a15a64738891221e3f82543ee0\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\a11d18a15a64738891221e3f82543ee0\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.core:core:1.1.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\b011d4b5d2ec7eea4ff52e346e1e6e65\core-1.1.0\AndroidManifest.xml:24:5-89
@@ -206,12 +219,16 @@ MERGED from [:firebase_core_web] C:\Users\ZED\Documents\MawQif-Client\build\fire
 MERGED from [:firebase_core_web] C:\Users\ZED\Documents\MawQif-Client\build\firebase_core_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:geocoder] C:\Users\ZED\Documents\MawQif-Client\build\geocoder\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:geocoder] C:\Users\ZED\Documents\MawQif-Client\build\geocoder\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:package_info] C:\Users\ZED\Documents\MawQif-Client\build\package_info\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:package_info] C:\Users\ZED\Documents\MawQif-Client\build\package_info\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth_web] C:\Users\ZED\Documents\MawQif-Client\build\firebase_auth_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth_web] C:\Users\ZED\Documents\MawQif-Client\build\firebase_auth_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:google_maps_flutter] C:\Users\ZED\Documents\MawQif-Client\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:google_maps_flutter] C:\Users\ZED\Documents\MawQif-Client\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] C:\Users\ZED\Documents\MawQif-Client\build\shared_preferences\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] C:\Users\ZED\Documents\MawQif-Client\build\shared_preferences\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:firebase_dynamic_links] C:\Users\ZED\Documents\MawQif-Client\build\firebase_dynamic_links\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:firebase_dynamic_links] C:\Users\ZED\Documents\MawQif-Client\build\firebase_dynamic_links\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] C:\Users\ZED\Documents\MawQif-Client\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] C:\Users\ZED\Documents\MawQif-Client\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher_macos] C:\Users\ZED\Documents\MawQif-Client\build\url_launcher_macos\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
@@ -230,6 +247,8 @@ MERGED from [:location_permissions] C:\Users\ZED\Documents\MawQif-Client\build\l
 MERGED from [:location_permissions] C:\Users\ZED\Documents\MawQif-Client\build\location_permissions\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:device_apps] C:\Users\ZED\Documents\MawQif-Client\build\device_apps\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:device_apps] C:\Users\ZED\Documents\MawQif-Client\build\device_apps\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_secure_storage] C:\Users\ZED\Documents\MawQif-Client\build\flutter_secure_storage\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:flutter_secure_storage] C:\Users\ZED\Documents\MawQif-Client\build\flutter_secure_storage\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\c7d953acc55dc4b3e953472bb182ad56\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\c7d953acc55dc4b3e953472bb182ad56\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ae936e42205d23ddab410b388bea9015\firebase-auth-19.2.0\AndroidManifest.xml:21:5-44
@@ -242,6 +261,8 @@ MERGED from [com.google.firebase:firebase-firestore:21.3.0] C:\Users\ZED\.gradle
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\22f58b309d21281990de9bfcb95c3476\jetified-firebase-firestore-21.3.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ea047754656839202ec88f76a50a02e4\jetified-firebase-database-17.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ea047754656839202ec88f76a50a02e4\jetified-firebase-database-17.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-dynamic-links:16.1.8] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\3cdab3e9a68a049fca280906f73bcae0\jetified-firebase-dynamic-links-16.1.8\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-dynamic-links:16.1.8] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\3cdab3e9a68a049fca280906f73bcae0\jetified-firebase-dynamic-links-16.1.8\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\327c7201b4916aaeadaad491d49f0473\firebase-auth-interop-19.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\327c7201b4916aaeadaad491d49f0473\firebase-auth-interop-19.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\8f3bd30fe9c69799bda711fceb9a4dc3\jetified-firebase-common-19.3.0\AndroidManifest.xml:20:5-22:41
@@ -258,6 +279,8 @@ MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\ZED\.gra
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\8ac2c71cc9965485e4fc4eaca5d4253a\play-services-base-17.1.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\0bef4825910dfde9d1394554b46b96ad\play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\0bef4825910dfde9d1394554b46b96ad\play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\6d2a52f33cb7e9f009300e1269b8c534\jetified-firebase-measurement-connector-17.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\6d2a52f33cb7e9f009300e1269b8c534\jetified-firebase-measurement-connector-17.0.1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\a11d18a15a64738891221e3f82543ee0\jetified-play-services-basement-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\a11d18a15a64738891221e3f82543ee0\jetified-play-services-basement-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\930ba79d9afd52964b42c14f0053fe4b\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -316,12 +339,16 @@ MERGED from [:firebase_database] C:\Users\ZED\Documents\MawQif-Client\build\fire
 MERGED from [:firebase_database] C:\Users\ZED\Documents\MawQif-Client\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
 MERGED from [:firebase_core] C:\Users\ZED\Documents\MawQif-Client\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
 MERGED from [:firebase_core] C:\Users\ZED\Documents\MawQif-Client\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_dynamic_links] C:\Users\ZED\Documents\MawQif-Client\build\firebase_dynamic_links\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-14:19
+MERGED from [:firebase_dynamic_links] C:\Users\ZED\Documents\MawQif-Client\build\firebase_dynamic_links\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-14:19
 MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ae936e42205d23ddab410b388bea9015\firebase-auth-19.2.0\AndroidManifest.xml:33:9-39:19
 MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ae936e42205d23ddab410b388bea9015\firebase-auth-19.2.0\AndroidManifest.xml:33:9-39:19
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\22f58b309d21281990de9bfcb95c3476\jetified-firebase-firestore-21.3.0\AndroidManifest.xml:17:9-23:19
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\22f58b309d21281990de9bfcb95c3476\jetified-firebase-firestore-21.3.0\AndroidManifest.xml:17:9-23:19
 MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ea047754656839202ec88f76a50a02e4\jetified-firebase-database-17.0.0\AndroidManifest.xml:29:9-33:19
 MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ea047754656839202ec88f76a50a02e4\jetified-firebase-database-17.0.0\AndroidManifest.xml:29:9-33:19
+MERGED from [com.google.firebase:firebase-dynamic-links:16.1.8] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\3cdab3e9a68a049fca280906f73bcae0\jetified-firebase-dynamic-links-16.1.8\AndroidManifest.xml:8:9-12:19
+MERGED from [com.google.firebase:firebase-dynamic-links:16.1.8] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\3cdab3e9a68a049fca280906f73bcae0\jetified-firebase-dynamic-links-16.1.8\AndroidManifest.xml:8:9-12:19
 MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\8f3bd30fe9c69799bda711fceb9a4dc3\jetified-firebase-common-19.3.0\AndroidManifest.xml:32:9-36:35
 MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\8f3bd30fe9c69799bda711fceb9a4dc3\jetified-firebase-common-19.3.0\AndroidManifest.xml:32:9-36:35
 	android:exported
@@ -356,6 +383,12 @@ ADDED from [:firebase_core] C:\Users\ZED\Documents\MawQif-Client\build\firebase_
 		ADDED from [:firebase_core] C:\Users\ZED\Documents\MawQif-Client\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_core] C:\Users\ZED\Documents\MawQif-Client\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-123
+meta-data#com.google.firebase.components:io.flutter.plugins.firebasedynamiclinks.FlutterFirebaseAppRegistrar
+ADDED from [:firebase_dynamic_links] C:\Users\ZED\Documents\MawQif-Client\build\firebase_dynamic_links\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-13:85
+	android:value
+		ADDED from [:firebase_dynamic_links] C:\Users\ZED\Documents\MawQif-Client\build\firebase_dynamic_links\intermediates\library_manifest\debug\AndroidManifest.xml:13:17-82
+	android:name
+		ADDED from [:firebase_dynamic_links] C:\Users\ZED\Documents\MawQif-Client\build\firebase_dynamic_links\intermediates\library_manifest\debug\AndroidManifest.xml:12:17-130
 activity#io.flutter.plugins.urllauncher.WebViewActivity
 ADDED from [:url_launcher] C:\Users\ZED\Documents\MawQif-Client\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
 	android:exported
@@ -420,6 +453,12 @@ ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ZED\.gradle\c
 		ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ea047754656839202ec88f76a50a02e4\jetified-firebase-database-17.0.0\AndroidManifest.xml:32:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\ea047754656839202ec88f76a50a02e4\jetified-firebase-database-17.0.0\AndroidManifest.xml:31:17-109
+meta-data#com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar
+ADDED from [com.google.firebase:firebase-dynamic-links:16.1.8] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\3cdab3e9a68a049fca280906f73bcae0\jetified-firebase-dynamic-links-16.1.8\AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [com.google.firebase:firebase-dynamic-links:16.1.8] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\3cdab3e9a68a049fca280906f73bcae0\jetified-firebase-dynamic-links-16.1.8\AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-dynamic-links:16.1.8] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\3cdab3e9a68a049fca280906f73bcae0\jetified-firebase-dynamic-links-16.1.8\AndroidManifest.xml:10:17-133
 provider#com.google.firebase.provider.FirebaseInitProvider
 ADDED from [com.google.firebase:firebase-common:19.3.0] C:\Users\ZED\.gradle\caches\transforms-2\files-2.1\8f3bd30fe9c69799bda711fceb9a4dc3\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
 	android:authorities

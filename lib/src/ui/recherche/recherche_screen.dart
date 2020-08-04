@@ -11,19 +11,42 @@ import 'package:mawqif/src/ui/widget/vehicule_type.dart';
 import 'package:provider/provider.dart';
 import 'package:mawqif/src/ui/recherche/calendar_view/calendar2.dart';
 
-class Recherche extends StatelessWidget {
+class Recherche extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _RechercheState();
+}
+
+class _RechercheState extends State<Recherche> {
+  bool _isButtonDisabled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _isButtonDisabled = false;
+  }
+
   @override
   Widget build(BuildContext inContext) {
     final provider = Provider.of<NomVehiculeProvider>(inContext);
     final providers = Provider.of<AddressProvider>(inContext);
     final calendarProvider = Provider.of<CalendarProvider>(inContext);
     final finCalendarProvider = Provider.of<FinCalendarProvider>(inContext);
+
+    bool isPopulated = providers.address != "Ville.." &&
+        calendarProvider.getDate() != "début" &&
+        provider.nomV != "petit,moyen,..." &&
+        finCalendarProvider.getDate() != "fin";
+
+    /*ool _ville = false;
+    bool _type = false;
+    bool _time = false;*/
+
     return MaterialApp(
         home: DefaultTabController(
             length: 2,
             child: Scaffold(
-                appBar: //PreferredSizeWidget( preferredSize:,
-                    AppBar(
+                backgroundColor: Colors.white,
+                appBar: AppBar(
                   backgroundColor: Colors.white,
                   bottom: TabBar(tabs: [
                     Tab(
@@ -196,26 +219,28 @@ class Recherche extends StatelessWidget {
                       ),
                       Container(
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5.0),
-                              color: Colors.blue),
+                            borderRadius: BorderRadius.circular(5.0),
+                            color: isPopulated ? Colors.blue : Colors.white,
+                          ),
                           margin: EdgeInsets.symmetric(
                               vertical: 0, horizontal: 15.0),
                           alignment: Alignment.bottomCenter,
                           child: FlatButton(
-                            color: Colors.blue,
+                            color: isPopulated ? Colors.blue : Colors.white,
                             child: Text(
                               'Trouver une place',
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color:
+                                      isPopulated ? Colors.white : Colors.blue,
                                   fontWeight: FontWeight.w700,
                                   fontSize: 16),
                             ),
-                            onPressed: () {
-                              Navigator.push(
-                                  inContext,
-                                  MaterialPageRoute(
-                                      builder: (context) => PartnerScreen()));
-                            },
+                            onPressed: isPopulated == true
+                                ? () => Navigator.push(
+                                    inContext,
+                                    MaterialPageRoute(
+                                        builder: (context) => PartnerScreen()))
+                                : null,
                           ))
                     ]),
                     Icon(Icons.directions_transit),

@@ -116,11 +116,11 @@ class _ParkingItemState extends State<ParkingItem> {
   }
 
   Widget subtitileListTile() {
-    String status = widget.document.data["status"];
+    int status = widget.document.data["users"];
     return Text(
-      "$status",
+      "($status)",
       style: TextStyle(
-          color: status == "reserver" ? Colors.red : Colors.green,
+          color: Colors.red,
           fontWeight: FontWeight.w400,
           fontSize: 13.5,
           letterSpacing: 0.1),

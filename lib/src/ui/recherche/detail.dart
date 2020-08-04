@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:mawqif/src/models/parking/parking.dart';
 import 'package:mawqif/src/providers/calendar_provider.dart/calendar_provider.dart';
 import 'package:mawqif/src/providers/calendar_provider.dart/fincalendar_provider.dart';
-import 'package:mawqif/src/providers/connection_provider/authh.dart';
 import 'package:mawqif/src/ui/widget/detail_screen/caracteristic_title.dart';
 import 'package:mawqif/src/ui/widget/detail_screen/contact_title.dart';
 import 'package:mawqif/src/ui/widget/detail_screen/couvert.dart';
@@ -38,7 +37,8 @@ class DraggableSheet extends StatefulWidget {
 
 class _DraggableSheetState extends State<DraggableSheet> {
   var maxHeight = 0.65;
-
+  String ownerId;
+  String id;
   @override
   Widget build(BuildContext context) {
     final resProvider = Provider.of<Reservations>(context);
@@ -196,29 +196,30 @@ class _DraggableSheetState extends State<DraggableSheet> {
                         final FirebaseUser currentUser =
                             await auth.currentUser();
 
-                        Auth authh = new Auth();
-
                         User user = new User(
-                            uid: authh.userId, immatriculations: immatricule);
+                            uid: currentUser.uid,
+                            immatriculations: immatricule);
                         CircularProgressIndicator();
                         bool hasReserved = await resProvider.hasReserved();
                         if (widget.document.data['places'] >= 1 &&
                             hasReserved == false &&
-                            immatricule != null) {
+                            textController.text.isNotEmpty) {
                           _isLoading = false;
-                          String id = widget.document.data['id'];
+                          id = widget.document.data['id'];
 
-                          if (authh.userId != null || currentUser.uid != null) {
+                          if (currentUser.uid != null) {
                             int nb = widget.document.data['places'] - 1;
-                            parkNotifier.updatePlaces(id, nb);
+                            parkNotifier.updatePlaces(id, nb, ownerId);
 
                             int nbUsers = widget.document.data['users'];
                             nbUsers++;
 
-                            parkNotifier.updateUsers(id, nbUsers);
+                            ownerId = widget.document.data["ownerId"];
+
+                            parkNotifier.updateUsers(id, nbUsers, ownerId);
                             int profit = widget.document.data['profit'];
                             profit = profit + widget.document.data['prix'];
-                            parkNotifier.updateProfit(id, profit);
+                            parkNotifier.updateProfit(id, profit, ownerId);
 
                             Parking park = new Parking(
                                 id: widget.document.data['id'],
@@ -232,10 +233,11 @@ class _DraggableSheetState extends State<DraggableSheet> {
                                 park: park,
                                 heureD: calendarNotifier.getFmt(),
                                 heureF: claendarFinNotifier.getFmt(),
-                                userInfo: user,
+                                userId: currentUser.uid,
+                                immatricule: immatricule,
                                 status: "à venir");
 
-                            resProvider.addReservations(product);
+                            resProvider.addReservations(product, ownerId);
 
                             _reserver = true;
 
@@ -279,11 +281,23 @@ class _DraggableSheetState extends State<DraggableSheet> {
                               backgroundColor: Colors.red,
                               textColor: Colors.white,
                               fontSize: 16.0);
+                        } else if (textController.text.isEmpty) {
+                          Fluttertoast.showToast(
+                              msg: "Matricule est obligatoire !",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
                         }
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => QrCode(user)));
+                        if (_reserver) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => QrCode(currentUser.uid,
+                                      immatricule, ownerId, id)));
+                        }
                       },
                       color: Colors.blue,
                       padding: EdgeInsets.symmetric(vertical: 14),

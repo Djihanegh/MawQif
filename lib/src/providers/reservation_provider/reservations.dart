@@ -8,14 +8,13 @@ import 'package:mawqif/src/models/parking/parking.dart';
 import 'package:mawqif/src/models/user/user.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
 import 'dart:collection';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Reservations with ChangeNotifier {
   Auth authh = new Auth();
-//final String authToken = "";
 
-  // final String _userId = null;
+  final Firestore _firestore = Firestore.instance;
 
   List<ReservationModel> items = [];
 
@@ -80,7 +79,7 @@ class Reservations with ChangeNotifier {
             heureD: resData['heureD'],
             heureF: resData['heureF'],
             park: Parking.fromJson(resData['park']),
-            userInfo: User.fromJson(resData['userInfo']),
+            // userId: User.fromJson(resData['userInfo']),
             status: resData['status'],
           ));
         } else {
@@ -96,33 +95,46 @@ class Reservations with ChangeNotifier {
     }
   }
 
-  Future<void> addReservations(ReservationModel product) async {
+  Future<void> addReservations(ReservationModel product, String id) async {
     const url = 'https://mawqif-6ac74.firebaseio.com/Reservation.json';
 
     try {
-      final response = await http.post(
+      /* final response = await http.post(
         url,
         body: json.encode({
           'id': product.id,
           'park': product.park,
           'heureD': product.heureD,
           'heureF': product.heureF,
-          'userInfo': product.userInfo,
+          'userInfo': product.userId,
           'codeRes': product.codeReservation,
           'status': product.status,
         }),
       );
-      print("reponse = " + response.body);
+    */ //  print("reponse = " + response.body);
       final newProduct = ReservationModel(
           id: product.id,
           park: product.park,
           heureD: product.heureD,
           heureF: product.heureF,
-          userInfo: product.userInfo,
+          userId: product.userId,
           status: product.status);
 
-      // items.add(newProduct);
-      reservationItems.insert(0, newProduct); // at the start of the list
+      _firestore
+          .collection("loueur")
+          .document(id)
+          .collection("orders")
+          .document(product.id)
+          .setData({
+        'id': product.id,
+        'parkId': product.park.id,
+        'heureD': product.heureD,
+        'heureF': product.heureF,
+        'userInfo': product.userId,
+        'status': product.status,
+      });
+
+      reservationItems.insert(0, newProduct);
       notifyListeners();
     } catch (error) {
       print(error);
@@ -208,7 +220,7 @@ class Reservations with ChangeNotifier {
         'park': product.park,
         'heureD': product.heureD,
         'heureF': product.heureF,
-        'todo': product.userInfo,
+        //'todo': product.userInfo,
       }),
     );
     items.insert(
@@ -219,7 +231,7 @@ class Reservations with ChangeNotifier {
         heureD: json.decode(response.body)['heureD'],
         heureF: json.decode(response.body)['heureF'],
         park: json.decode(response.body)['park'],
-        userInfo: json.decode(response.body)['userInfo'],
+        // userInfo: json.decode(response.body)['userInfo'],
       ),
     );
     notifyListeners();

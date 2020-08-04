@@ -64,6 +64,15 @@ dependencies:
   provider_utilities:
     git:
       url: https://github.com/quantosapplications/flutter_provider_utilities.git
+  random_string: ^2.0.0
+  flutter_secure_storage: ^3.3.1+1
+  package_info: ^0.4.0+13
+  flutter_screenutil: ^0.4.2
+  firebase_dynamic_links:
+    git:
+      url: https://github.com/mrmilu/flutterfire
+      path: packages/firebase_dynamic_links
+      ref: firebase_dynamic_links
 
 
 

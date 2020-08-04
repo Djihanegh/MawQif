@@ -183,6 +183,7 @@ com/google/firebase/database/PropertyName.class
 com/google/firebase/database/ThrowOnExtraProperties.class
 com/google/firebase/database/annotations/NotNull.class
 com/google/firebase/database/annotations/Nullable.class
+com/google/firebase/dynamiclinks/ShortDynamicLink$Suffix.class
 com/google/firebase/firestore/DocumentId.class
 com/google/firebase/firestore/Exclude.class
 com/google/firebase/firestore/IgnoreExtraProperties.class
