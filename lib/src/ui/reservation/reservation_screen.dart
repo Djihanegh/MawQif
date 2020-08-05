@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mawqif/src/models/parking/parking.dart';
@@ -23,6 +24,14 @@ class Reservation extends StatefulWidget {
 }
 
 class ReservationState extends State<Reservation> {
+  FirebaseUser currentUser;
+  String id;
+  @override
+  void initState() {
+    getUserId();
+    super.initState();
+  }
+
   _save(String token) async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';
@@ -53,7 +62,7 @@ class ReservationState extends State<Reservation> {
         ),
         body: FutureBuilder(
           future: Provider.of<Reservations>(context, listen: false)
-              .fetchAndSetReservations(),
+              .fetchAndSetReservations(id),
           builder: (ctx, dataSnapshot) {
             if (dataSnapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
@@ -61,7 +70,6 @@ class ReservationState extends State<Reservation> {
               return Center(
                 child: Text('Erreur veuillez réessayer!'),
               );
-            
             }
             /*else if(dataSnapshot.data == null ) {
             return Center(child: Text("Vous n'avez aucune réservation actuellement "),);
@@ -78,5 +86,14 @@ class ReservationState extends State<Reservation> {
             }
           },
         ));
+  }
+
+  Future<String> getUserId() async {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final FirebaseUser currentUser = await auth.currentUser();
+    setState(() {
+      id = currentUser.uid;
+    });
+    return currentUser.uid;
   }
 }

@@ -206,6 +206,7 @@ class _DraggableSheetState extends State<DraggableSheet> {
                             textController.text.isNotEmpty) {
                           _isLoading = false;
                           id = widget.document.data['id'];
+                          ownerId = widget.document.data["ownerId"];
 
                           if (currentUser.uid != null) {
                             int nb = widget.document.data['places'] - 1;
@@ -213,8 +214,6 @@ class _DraggableSheetState extends State<DraggableSheet> {
 
                             int nbUsers = widget.document.data['users'];
                             nbUsers++;
-
-                            ownerId = widget.document.data["ownerId"];
 
                             parkNotifier.updateUsers(id, nbUsers, ownerId);
                             int profit = widget.document.data['profit'];

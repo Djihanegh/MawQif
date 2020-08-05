@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mawqif/src/ui/widget/qr_code.dart';
@@ -5,10 +6,10 @@ import 'package:provider/provider.dart';
 import 'package:mawqif/src/providers/reservation_provider/reservations.dart';
 
 class Abonnement extends StatefulWidget {
-  String heureD;
-  String heureF;
+  // String heureD;
+  // String heureF;
 
-  get id => null;
+  //get id => null;
 
   createState() {
     return ReservationState();
@@ -16,6 +17,13 @@ class Abonnement extends StatefulWidget {
 }
 
 class ReservationState extends State<Abonnement> {
+  String id;
+  @override
+  void initState() {
+    getUserId();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +33,9 @@ class ReservationState extends State<Abonnement> {
         ),
         body: FutureBuilder(
           future: Provider.of<Reservations>(context, listen: false)
-              .fetchAndSetReservations(),
+              .fetchAndSetReservations(
+            id,
+          ),
           builder: (ctx, dataSnapshot) {
             if (dataSnapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
@@ -56,5 +66,16 @@ class ReservationState extends State<Abonnement> {
             }
           },
         ));
+  }
+
+  Future<String> getUserId() async {
+    FirebaseUser currentUser;
+
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    currentUser = await auth.currentUser();
+    setState(() {
+      id = currentUser.uid;
+    });
+    return currentUser.uid;
   }
 }

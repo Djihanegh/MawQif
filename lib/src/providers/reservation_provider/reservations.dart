@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:mawqif/src/models/reservation/reservation.dart';
 import 'package:http/http.dart' as http;
 import 'package:mawqif/src/models/exception/http_exception.dart';
-import 'package:mawqif/src/models/parking/parking.dart';
 import 'package:mawqif/src/models/user/user.dart';
 import 'package:mawqif/src/providers/connection_provider/authh.dart';
 import 'dart:collection';
@@ -55,17 +54,19 @@ class Reservations with ChangeNotifier {
     return items.firstWhere((prod) => prod.id == id);
   }
 
-  Future<void> fetchAndSetReservations() async {
-    const url = 'https://mawqif-6ac74.firebaseio.com/Reservation.json';
+  Future<void> fetchAndSetReservations(String userId) async {
+    /* const url = 'https://mawqif-6ac74.firebaseio.com/Reservation.json';
     final prefs = await SharedPreferences.getInstance();
     if (!prefs.containsKey('userData')) {
       return false;
     }
     final extractedUserData =
         json.decode(prefs.getString('userData')) as Map<String, Object>;
-    final uid = extractedUserData['userId'];
+    final uid = extractedUserData['userId'];*/
     try {
-      final response = await http.get(url);
+      List<ReservationModel> loadedReservations = [];
+
+      /* final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
       if (extractedData == null) {
         return;
@@ -79,14 +80,26 @@ class Reservations with ChangeNotifier {
             heureD: resData['heureD'],
             heureF: resData['heureF'],
             park: Parking.fromJson(resData['park']),
-            // userId: User.fromJson(resData['userInfo']),
             status: resData['status'],
           ));
         } else {
           return;
         }
       });
+*/
 
+      var snapshot = await _firestore
+          .collection("loueur")
+          .document()
+          .collection("orders")
+          .where("userInfo", isEqualTo: userId)
+          .getDocuments();
+
+      if (snapshot.documents.isNotEmpty) {
+        loadedReservations = snapshot.documents
+            .map((e) => ReservationModel.fromMap(e.data))
+            .toList();
+      }
       items = loadedReservations;
 
       notifyListeners();
@@ -95,7 +108,7 @@ class Reservations with ChangeNotifier {
     }
   }
 
-  Future<void> addReservations(ReservationModel product, String id) async {
+  Future<void> addReservations(ReservationModel product, String ownerId) async {
     const url = 'https://mawqif-6ac74.firebaseio.com/Reservation.json';
 
     try {
@@ -122,7 +135,7 @@ class Reservations with ChangeNotifier {
 
       _firestore
           .collection("loueur")
-          .document(id)
+          .document(ownerId)
           .collection("orders")
           .document(product.id)
           .setData({
@@ -205,35 +218,5 @@ class Reservations with ChangeNotifier {
       throw HttpException('Could not delete product.');
     }
     existingProduct = null;
-  }
-
-  Auth user = Auth();
-  //var userId = Auth.userId ;
-  Future<void> addOrder(ReservationModel product) async {
-    final url = 'https://mawqif-6ac74.firebaseio.com/Reservation.json';
-    //final timestamp = DateTime.now();
-    final response = await http.post(
-      url,
-      body: json.encode({
-        'id': product.id,
-        'nom': product.nom,
-        'park': product.park,
-        'heureD': product.heureD,
-        'heureF': product.heureF,
-        //'todo': product.userInfo,
-      }),
-    );
-    items.insert(
-      0,
-      ReservationModel(
-        id: json.decode(response.body)['id'],
-        nom: json.decode(response.body)['nom'],
-        heureD: json.decode(response.body)['heureD'],
-        heureF: json.decode(response.body)['heureF'],
-        park: json.decode(response.body)['park'],
-        // userInfo: json.decode(response.body)['userInfo'],
-      ),
-    );
-    notifyListeners();
   }
 }

@@ -17,12 +17,12 @@ class QrCode extends StatefulWidget {
 }
 
 class QrCodeState extends State<QrCode> {
-  String status = "";
+  String status = "Pas encore accepte";
 
   @override
   void initState() {
-    super.initState();
     listenNumbers();
+    super.initState();
   }
 
   @override
@@ -73,6 +73,7 @@ class QrCodeState extends State<QrCode> {
     streamNumbers.listen((snapshot) {
       snapshot.documents.forEach((doc) {
         String _status = doc.data['status'];
+        print("STATUSSSS $status");
 
         setState(() {
           status = _status;
